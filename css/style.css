@@ -1,0 +1,86 @@
+.UnitsStatus-0, .AsesorStatus-0, .AsesorCategories-0{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--bs-border-radius-pill) !important;
+    background-color: var(--success-focus);
+    color: var(--success-main);
+}
+.UnitsStatus-1, .AsesorStatus-1, .AsesorCategories-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--bs-border-radius-pill) !important;
+    background-color: var(--danger-focus);
+    color: var(--danger-main);
+}
+.UnitsStatus-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--bs-border-radius-pill) !important;
+    background-color: var(--warning-focus);
+    color: var(--warning-main);
+}
+.UnitsStatus-3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--bs-border-radius-pill) !important;
+    background-color: var(--neutral-100);
+    color: var(--text-primary-light);
+}
+
+.UnitsStatus-4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--bs-border-radius-pill) !important;
+    background-color: var(--neutral-100);
+    color: var(--text-primary-light);
+}
+
+.plan-title{
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.plan-div{
+    margin: 1em;
+    background-color: white;
+    padding: 1em;
+}
+
+
+.left{
+    text-align: left;
+}
+
+.right{
+    text-align: right;
+}
+
+.center{
+    text-align: center;
+}
+
+@media (min-width: 992px) {
+    .plan-row{
+        display:flex; 
+        flex-direction: row; 
+        justify-content: space-evenly;
+    }
+
+    .plan-div{
+        width: 100%;
+    }
+    
+}
+
+@media (max-width: 991px) {
+    .plan-row{
+        display:flex; 
+        flex-direction: column; 
+    }
+}

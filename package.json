@@ -10,5 +10,9 @@
   "description": "",
   "peerDependencies": {
     "jquery": "^3.0"
+  },
+  "exports": {
+    ".": "./src/index.js",
+    "./css/*": "./css/*"
   }
 }
