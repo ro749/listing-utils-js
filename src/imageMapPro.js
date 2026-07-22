@@ -57,9 +57,10 @@ import $ from 'jquery';
             var selected_unit = $(this).data('selected_unit');
             if(action.type == "mapInit"){
                 if(ImageMapPro.isMobile()){
-                    document.getElementById("image-map-pro").addEventListener("click", function(event) {
-                        get_unit(event.target.getAttribute("data-title"));
-                    });
+                    console.log("mobile");
+                    //document.getElementById("image-map-pro").addEventListener("click", function(event) {
+                    //    get_unit(event.target.getAttribute("data-title"));
+                    //});
                 }
                 setTimeout(function(){
                     const event = new UIEvent('resize', {
@@ -75,10 +76,12 @@ import $ from 'jquery';
                 get_unit(action.payload.object);
             }
             if(ImageMapPro.isMobile() && action.type == "tooltipShow"){
-                ImageMapPro.hideTooltip(action.payload.map, action.payload.object);
+                $(".imp-tooltips-container").hide();
             }
             if(action.type == "artboardChange"){
-                $('[data-title="' + selected_unit + '"]').attr('style', 'background: '+selected_color+' !important;');
+                if(typeof selected_color !== "undefined"){
+                    $('[data-title="' + selected_unit + '"]').attr('style', 'background: '+selected_color+' !important;');
+                }
             }
         });
         var $this = $(this);
