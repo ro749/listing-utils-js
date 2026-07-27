@@ -35,7 +35,7 @@ import $ from 'jquery';
         }, 166);
     }
 
-    $.fn.imageMapPro = function (options = {}) {
+    $.fn.singleImageMapPro = function (options = {}) {
         var $this = $(this);
         function get_unit(unit){
             $.ajax({
@@ -56,12 +56,6 @@ import $ from 'jquery';
             }
             var selected_unit = $(this).data('selected_unit');
             if(action.type == "mapInit"){
-                if(ImageMapPro.isMobile()){
-                    console.log("mobile");
-                    //document.getElementById("image-map-pro").addEventListener("click", function(event) {
-                    //    get_unit(event.target.getAttribute("data-title"));
-                    //});
-                }
                 setTimeout(function(){
                     const event = new UIEvent('resize', {
                       bubbles: true,
@@ -84,7 +78,6 @@ import $ from 'jquery';
                 }
             }
         });
-        var $this = $(this);
         $.ajax({
             url: 'imagemappro/'+options.id+'/map',
             method: 'GET',

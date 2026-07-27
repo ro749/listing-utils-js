@@ -84,3 +84,7 @@
         flex-direction: column; 
     }
 }
+
+#SelectClient-fields{
+    width: 75% !important;
+}
