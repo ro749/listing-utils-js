@@ -34,7 +34,6 @@ import $ from 'jquery';
             window.dispatchEvent(event);
         }, 166);
     }
-
     $.fn.singleImageMapPro = function (options = {}) {
         var $this = $(this);
         function get_unit(unit){
@@ -71,6 +70,7 @@ import $ from 'jquery';
             }
             if(ImageMapPro.isMobile() && action.type == "tooltipShow"){
                 $(".imp-tooltips-container").hide();
+                document.body.style.overflow = 'auto';
             }
             if(action.type == "artboardChange"){
                 if(typeof selected_color !== "undefined"){
