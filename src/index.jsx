@@ -1,0 +1,1 @@
+export { default as ImageMap } from "./image_map/ImageMap.jsx";
