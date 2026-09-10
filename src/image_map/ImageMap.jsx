@@ -3,12 +3,11 @@ import ReactSelect from 'react-select';
 import Polygon from "./Polygon.jsx";
 import Tooltip from "./Tooltip.jsx";
 
-const ImageMap = (config) => {
+
+const ImageMap = ({config, onClick, selected}) => {
+    console.log(config);
     const tooltipRef = useRef();
     const [artboard, setArtboard] = useState(config.map.artboards[0]);
-    config.map.artboards.forEach((artboard) => {
-        console.log(artboard);
-    });
 
     const selectOptions = config.map.artboards.map((artboard) => ({
       value: artboard.id,
@@ -20,8 +19,6 @@ const ImageMap = (config) => {
     }
 
     function handleMouseEnter(event) {
-        console.log('enter: ');
-        console.log(event.target.parentNode);
         const title = event.target.parentNode.getAttribute('data-title'); 
         if (title){
             tooltipRef.current.setText(title);
@@ -31,8 +28,6 @@ const ImageMap = (config) => {
 
     function handleMouseLeave(event) {
         const title = event.target.parentNode.getAttribute('data-title'); 
-        console.log('leave: '); 
-        console.log(event.target.parentNode);
         if (title){
             tooltipRef.current.setText('');
         } 
@@ -40,16 +35,17 @@ const ImageMap = (config) => {
 
     function handleClick(event) {
         const title = event.target.parentNode.getAttribute('data-title');
-        console.log('clicked ',title);
         if(onClick){
             onClick(title);
         }
     }
     
     return (<>
-        <div style={{ position: "absolute" }}>
-            <Tooltip ref={tooltipRef}/>
-            {config.map.artboards.length > 1 && (
+        <div style={{ position: "relative" }}>
+            <img src={artboard.image_url} style={{ position: "relative" }}/>
+            <div style={{ position: "absolute", left: 0, top: 0, width: '100%', height: '100%', zIndex: 2 }}>
+                <Tooltip ref={tooltipRef}/>
+                {config.map.artboards.length > 1 && (
                 <div className="artboard-selector" style={{
                   position: 'absolute',
                   top: '10px',
@@ -66,9 +62,6 @@ const ImageMap = (config) => {
                     />
                 </div>
             )}
-            <img src={artboard.image_url} style={{ position: "relative" }}/>
-            
-            <div style={{ position: "absolute", left: 0, top: 0, width: '100%', height: '100%', zIndex: 2 }}>
                 {artboard.children.map((child) => {
                     let points = child.points.map(p => `${p.x},${p.y}`).join(' ');
                     return(
@@ -80,9 +73,9 @@ const ImageMap = (config) => {
                             y={child.y}
                             width={child.width}
                             height={child.height}
-                            fillColor={child.default_style.background_color}
+                            fillColor={child.title === selected ? config.selected_color : child.default_style.background_color}
                             opacity={child.default_style.background_opacity}
-                            hoverFillColor={child.mouseover_style.background_color}
+                            hoverFillColor={child.title === selected ? config.selected_color : child.mouseover_style.background_color}
                             hoveredOpacity={child.mouseover_style.background_opacity}
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}

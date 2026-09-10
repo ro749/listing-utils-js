@@ -89,3 +89,19 @@
 #SelectClient-fields{
     width: 75% !important;
 }
+
+.send-btn{
+    display: flex;
+    align-items: center; 
+    gap: 6px;
+}
+
+.sender-title{
+    font-size: 20px !important; 
+}
+
+.dialog-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
