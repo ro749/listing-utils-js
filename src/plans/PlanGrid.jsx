@@ -2,7 +2,8 @@ import React from "react";
 import Plan from "./Plan.jsx";
 import { useRecordForm } from "shared-utils";
 import Sender from "../sender/Sender.jsx";
-const PlanGrid = ({config, client, unit}) => {
+const PlanGrid = ({config, client, unit, personalLines}) => {
+    console.log(config);
     const reset = () => { 
       inputRefs.current.forEach(input => input.reset?.());
     };
@@ -13,7 +14,7 @@ const PlanGrid = ({config, client, unit}) => {
         {config.plans.map((planRow, rowIndex) => (
             <div key={rowIndex} className="plan-row" style={{ display: "flex", flexDirection: "row", marginBottom: "10px" }}>
                 {planRow.map((plan, colIndex) =>(
-                    <Plan key={colIndex} plan={plan} price={unit.price} form={form} />
+                    <Plan key={colIndex} plan={plan} price={unit.price} form={form} personalLines={personalLines} debug={rowIndex + "-" + colIndex}/>
                 )
                 )}
             </div>

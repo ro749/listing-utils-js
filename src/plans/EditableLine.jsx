@@ -19,6 +19,7 @@ const EditableLine = ({ref, form, item, price=0, onChange}) => {
         editedValue.current = false;
         setPercent(val);
         const moneyValue = price * val / 100;
+        
         form.setFieldValue('fill_' + item.id, moneyValue);
         if(onChange){
             onChange(moneyValue);
@@ -32,7 +33,6 @@ const EditableLine = ({ref, form, item, price=0, onChange}) => {
         }
         
     }
-    
     return (
         <tr className="plan-line">
             <td className="right">{item.text}:</td>
@@ -45,6 +45,7 @@ const EditableLine = ({ref, form, item, price=0, onChange}) => {
                     children={(field) =>{ 
                         return(
                         <MoneyInput 
+                            id={'fill_' + item.id}
                             field={field} 
                             value={field.state.value}
                             onChange={onChangeMoney} 

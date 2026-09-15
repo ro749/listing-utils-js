@@ -174,15 +174,15 @@ var ImageMapPro = ({ config, onChange }) => {
 var ImageMapPro_default = ImageMapPro;
 
 // src/plans/PlanGrid.jsx
-import React14 from "react";
+import React15 from "react";
 
 // src/plans/Plan.jsx
-import React13, { useState as useState8 } from "react";
+import React14, { useState as useState8, useEffect as useEffect2 } from "react";
 
 // src/plans/PlanLine.jsx
 import React5 from "react";
-var PlanLine = ({ item, price = 0, value = "" }) => {
-  return /* @__PURE__ */ React5.createElement("tr", { className: "plan-line" }, /* @__PURE__ */ React5.createElement("td", { className: "right" }, item.text, ":"), /* @__PURE__ */ React5.createElement("td", { className: "center" }, item.percent != 0 ? item.percent + "%" : ""), /* @__PURE__ */ React5.createElement("td", { className: "left" }, price != 0 ? new Intl.NumberFormat("es-MX", {
+var PlanLine = ({ item, price = 0, value = "", percent }) => {
+  return /* @__PURE__ */ React5.createElement("tr", { className: "plan-line" }, /* @__PURE__ */ React5.createElement("td", { className: "right" }, item.text, ":"), /* @__PURE__ */ React5.createElement("td", { className: "center" }, typeof percent === "number" ? percent + "%" : item.percent != 0 ? item.percent + "%" : ""), /* @__PURE__ */ React5.createElement("td", { className: "left" }, price != 0 ? new Intl.NumberFormat("es-MX", {
     style: "currency",
     currency: "MXN"
   }).format(price) : value));
@@ -192,7 +192,7 @@ var PlanLine_default = PlanLine;
 // src/plans/MonthsLine.jsx
 import React6 from "react";
 var MonthsLine = ({ item, price }) => {
-  return /* @__PURE__ */ React6.createElement(React6.Fragment, null, /* @__PURE__ */ React6.createElement(PlanLine_default, { item: item.line, price: price * item.line.percent / 100 }), /* @__PURE__ */ React6.createElement(PlanLine_default, { item: item.months_line, value: item.months_line.amount }), /* @__PURE__ */ React6.createElement(PlanLine_default, { item: item.mensuality_line, price: price * item.line.percent / 100 / item.months_line.amount }));
+  return /* @__PURE__ */ React6.createElement(React6.Fragment, null, /* @__PURE__ */ React6.createElement(PlanLine_default, { item: item.line, price }), /* @__PURE__ */ React6.createElement(PlanLine_default, { item: item.months_line, value: item.months_line.amount }), /* @__PURE__ */ React6.createElement(PlanLine_default, { item: item.mensuality_line, price: price / item.months_line.amount }));
 };
 var MonthsLine_default = MonthsLine;
 
@@ -236,6 +236,7 @@ var EditableLine = ({ ref, form, item, price = 0, onChange }) => {
         return /* @__PURE__ */ React7.createElement(
           MoneyInput,
           {
+            id: "fill_" + item.id,
             field,
             value: field.state.value,
             onChange: onChangeMoney
@@ -286,39 +287,55 @@ var EditableMonths_default = EditableMonths;
 // src/plans/Plan.jsx
 import { useSelector } from "@tanstack/react-form";
 
+// src/plans/FillWithRestLine.jsx
+import React9 from "react";
+var FillWithRestLine = ({ item, price = 0, values, fields, getPrice }) => {
+  console.log("FillWithRestLine");
+  var newFinalPrice = 0;
+  var percent = 0;
+  for (let i = 0; i < fields.length; i++) {
+    newFinalPrice += parseFloat(values[fields[i]]);
+  }
+  newFinalPrice = price - newFinalPrice;
+  getPrice(newFinalPrice);
+  percent = newFinalPrice / price * 100;
+  return /* @__PURE__ */ React9.createElement(PlanLine_default, { item, percent, price: newFinalPrice });
+};
+var FillWithRestLine_default = FillWithRestLine;
+
 // src/sender/Sender.jsx
-import React12, { useState as useState7 } from "react";
+import React13, { useState as useState7 } from "react";
 
 // unplugin-icons:~icons/iconamoon/link.jsx
-import * as React9 from "react";
+import * as React10 from "react";
 import { forwardRef } from "react";
 var iconamoonLink = ({
   title,
   titleId,
   ...props
-}, ref) => /* @__PURE__ */ React9.createElement("svg", { viewBox: "0 0 24 24", width: "1.2em", height: "1.2em", ref, "aria-labelledby": titleId, ...props }, title ? /* @__PURE__ */ React9.createElement("title", { id: titleId }, title) : null, /* @__PURE__ */ React9.createElement("path", { fill: "none", stroke: "currentColor", strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M8 12h8M9 8H6a4 4 0 1 0 0 8h3m6-8h3a4 4 0 0 1 0 8h-3" }));
+}, ref) => /* @__PURE__ */ React10.createElement("svg", { viewBox: "0 0 24 24", width: "1.2em", height: "1.2em", ref, "aria-labelledby": titleId, ...props }, title ? /* @__PURE__ */ React10.createElement("title", { id: titleId }, title) : null, /* @__PURE__ */ React10.createElement("path", { fill: "none", stroke: "currentColor", strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M8 12h8M9 8H6a4 4 0 1 0 0 8h3m6-8h3a4 4 0 0 1 0 8h-3" }));
 var ForwardRef = forwardRef(iconamoonLink);
 var link_default = ForwardRef;
 
 // unplugin-icons:~icons/iconamoon/email.jsx
-import * as React10 from "react";
+import * as React11 from "react";
 import { forwardRef as forwardRef2 } from "react";
 var iconamoonEmail = ({
   title,
   titleId,
   ...props
-}, ref) => /* @__PURE__ */ React10.createElement("svg", { viewBox: "0 0 24 24", width: "1.2em", height: "1.2em", ref, "aria-labelledby": titleId, ...props }, title ? /* @__PURE__ */ React10.createElement("title", { id: titleId }, title) : null, /* @__PURE__ */ React10.createElement("g", { fill: "none" }, /* @__PURE__ */ React10.createElement("path", { fill: "currentColor", d: "M3 5V4a1 1 0 0 0-1 1zm18 0h1a1 1 0 0 0-1-1zM3 6h18V4H3zm17-1v12h2V5zm-1 13H5v2h14zM4 17V5H2v12zm1 1a1 1 0 0 1-1-1H2a3 3 0 0 0 3 3zm15-1a1 1 0 0 1-1 1v2a3 3 0 0 0 3-3z" }), /* @__PURE__ */ React10.createElement("path", { stroke: "currentColor", strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "m3 5l9 9l9-9" })));
+}, ref) => /* @__PURE__ */ React11.createElement("svg", { viewBox: "0 0 24 24", width: "1.2em", height: "1.2em", ref, "aria-labelledby": titleId, ...props }, title ? /* @__PURE__ */ React11.createElement("title", { id: titleId }, title) : null, /* @__PURE__ */ React11.createElement("g", { fill: "none" }, /* @__PURE__ */ React11.createElement("path", { fill: "currentColor", d: "M3 5V4a1 1 0 0 0-1 1zm18 0h1a1 1 0 0 0-1-1zM3 6h18V4H3zm17-1v12h2V5zm-1 13H5v2h14zM4 17V5H2v12zm1 1a1 1 0 0 1-1-1H2a3 3 0 0 0 3 3zm15-1a1 1 0 0 1-1 1v2a3 3 0 0 0 3-3z" }), /* @__PURE__ */ React11.createElement("path", { stroke: "currentColor", strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "m3 5l9 9l9-9" })));
 var ForwardRef2 = forwardRef2(iconamoonEmail);
 var email_default = ForwardRef2;
 
 // unplugin-icons:~icons/ic/outline-whatsapp.jsx
-import * as React11 from "react";
+import * as React12 from "react";
 import { forwardRef as forwardRef3 } from "react";
 var icOutlineWhatsapp = ({
   title,
   titleId,
   ...props
-}, ref) => /* @__PURE__ */ React11.createElement("svg", { viewBox: "0 0 24 24", width: "1.2em", height: "1.2em", ref, "aria-labelledby": titleId, ...props }, title ? /* @__PURE__ */ React11.createElement("title", { id: titleId }, title) : null, /* @__PURE__ */ React11.createElement("path", { fill: "currentColor", d: "M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01m-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23m4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28" }));
+}, ref) => /* @__PURE__ */ React12.createElement("svg", { viewBox: "0 0 24 24", width: "1.2em", height: "1.2em", ref, "aria-labelledby": titleId, ...props }, title ? /* @__PURE__ */ React12.createElement("title", { id: titleId }, title) : null, /* @__PURE__ */ React12.createElement("path", { fill: "currentColor", d: "M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01m-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23m4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28" }));
 var ForwardRef3 = forwardRef3(icOutlineWhatsapp);
 var outline_whatsapp_default = ForwardRef3;
 
@@ -327,18 +344,20 @@ import { Dialog } from "shared-utils";
 import axios2 from "axios";
 var Sender = ({ client, unit, form }) => {
   const [showDialog, setShowDialog] = useState7(0);
-  const [dialogMessage, setDialogMessage] = useState7("");
+  const [sentDialogTitle, setSentDialogTitle] = useState7("");
+  const [sentDialogMessage, setSentDialogMessage] = useState7("");
+  const [link, setLink] = useState7("");
+  const [linkWhatsapp, setLinkWhatsapp] = useState7("");
   function handleLinkClick() {
-    setShowDialog(3);
+    setShowDialog(1);
   }
   function handleEmailClick() {
     setShowDialog(2);
   }
   function handleWhatsappClick() {
-    setShowDialog(1);
+    setShowDialog(3);
   }
   function handleSend(sendMethod) {
-    console.log(axios2.defaults.headers.common["X-CSRF-TOKEN"]);
     const formData = new FormData();
     formData.append("medium", sendMethod);
     formData.append("unit_id", unit.id);
@@ -348,27 +367,35 @@ var Sender = ({ client, unit, form }) => {
         formData.append("personal_plans['" + key + "']", value);
       });
     }
-    axios2.post("sender", formData);
+    axios2.post("sender", formData).then((response) => {
+      setShowDialog(0);
+      if (sendMethod === 0) {
+        const isSafari = /^((?!chrome|android|crios).)*safari/i.test(navigator.userAgent);
+        if (isSafari) {
+          navigator.clipboard.writeText(response.data);
+          setSentDialogTitle("Copie el enlace y abra WhatsApp para enviar cotizaci\xF3n.");
+        } else {
+          window.open("https://wa.me/52" + client.phone + "?text=" + response.data, "_blank");
+          setSentDialogTitle("Whatsapp Enviado");
+          setLink("Si la cotizaci\xF3n no se envi\xF3 favor de revisar los permisos del navegador.");
+        }
+      }
+      if (sendMethod === 1) {
+        setSentDialogTitle("Email Enviado a:");
+        setLink(client.mail);
+      }
+      if (sendMethod === 2) {
+        navigator.clipboard.writeText(response.data);
+        setSentDialogTitle("Link copiado para:");
+        setSentDialogMessage(client.name);
+        setLink(response.data);
+      }
+    });
   }
-  return /* @__PURE__ */ React12.createElement(React12.Fragment, null, /* @__PURE__ */ React12.createElement("div", { style: { display: "flex", justifyContent: "center", gap: "6px" } }, client.email !== void 0 && /* @__PURE__ */ React12.createElement("button", { className: "btn btn-light send-btn", onClick: handleEmailClick }, /* @__PURE__ */ React12.createElement(email_default, null), /* @__PURE__ */ React12.createElement("span", null, "Correo")), client.phone !== void 0 && /* @__PURE__ */ React12.createElement("button", { className: "btn btn-light send-btn", onClick: handleWhatsappClick }, /* @__PURE__ */ React12.createElement(outline_whatsapp_default, null), /* @__PURE__ */ React12.createElement("span", null, "Whatsapp")), /* @__PURE__ */ React12.createElement("button", { className: "btn btn-light send-btn", onClick: handleLinkClick }, /* @__PURE__ */ React12.createElement(link_default, null), /* @__PURE__ */ React12.createElement("span", null, "Link"))), /* @__PURE__ */ React12.createElement(
+  return /* @__PURE__ */ React13.createElement(React13.Fragment, null, /* @__PURE__ */ React13.createElement("div", { style: { display: "flex", justifyContent: "center", gap: "6px" } }, client.mail !== void 0 && /* @__PURE__ */ React13.createElement("button", { className: "btn btn-light send-btn", onClick: handleEmailClick }, /* @__PURE__ */ React13.createElement(email_default, null), /* @__PURE__ */ React13.createElement("span", null, "Correo")), client.phone !== void 0 && /* @__PURE__ */ React13.createElement("button", { className: "btn btn-light send-btn", onClick: handleWhatsappClick }, /* @__PURE__ */ React13.createElement(outline_whatsapp_default, null), /* @__PURE__ */ React13.createElement("span", null, "Whatsapp")), /* @__PURE__ */ React13.createElement("button", { className: "btn btn-light send-btn", onClick: handleLinkClick }, /* @__PURE__ */ React13.createElement(link_default, null), /* @__PURE__ */ React13.createElement("span", null, "Link"))), /* @__PURE__ */ React13.createElement(
     Dialog,
     {
       isOpen: showDialog === 1,
-      onClose: () => setShowDialog(0),
-      actions: [
-        {
-          label: "Enviar",
-          onClick: () => handleSend(1),
-          className: "btn-success-600"
-        }
-      ]
-    },
-    /* @__PURE__ */ React12.createElement("h4", { className: "sender-title" }, "Quieres el link para:"),
-    /* @__PURE__ */ React12.createElement("p", null, client.name)
-  ), /* @__PURE__ */ React12.createElement(
-    Dialog,
-    {
-      isOpen: showDialog === 2,
       onClose: () => setShowDialog(0),
       actions: [
         {
@@ -378,10 +405,25 @@ var Sender = ({ client, unit, form }) => {
         }
       ]
     },
-    /* @__PURE__ */ React12.createElement("h4", { className: "sender-title" }, "Quieres enviar correo a:"),
-    /* @__PURE__ */ React12.createElement("p", null, client.name),
-    /* @__PURE__ */ React12.createElement("p", null, client.email)
-  ), /* @__PURE__ */ React12.createElement(
+    /* @__PURE__ */ React13.createElement("h4", { className: "sender-title" }, "Quieres el link para:"),
+    /* @__PURE__ */ React13.createElement("p", null, client.name)
+  ), /* @__PURE__ */ React13.createElement(
+    Dialog,
+    {
+      isOpen: showDialog === 2,
+      onClose: () => setShowDialog(0),
+      actions: [
+        {
+          label: "Enviar",
+          onClick: () => handleSend(1),
+          className: "btn-success-600"
+        }
+      ]
+    },
+    /* @__PURE__ */ React13.createElement("h4", { className: "sender-title" }, "Quieres enviar correo a:"),
+    /* @__PURE__ */ React13.createElement("p", null, client.name),
+    /* @__PURE__ */ React13.createElement("p", null, client.mail)
+  ), /* @__PURE__ */ React13.createElement(
     Dialog,
     {
       isOpen: showDialog == 3,
@@ -389,37 +431,93 @@ var Sender = ({ client, unit, form }) => {
       actions: [
         {
           label: "Enviar",
-          onClick: () => handleSend(3),
+          onClick: () => handleSend(0),
           className: "btn-success-600"
         }
       ]
     },
-    /* @__PURE__ */ React12.createElement("h4", { className: "sender-title" }, "Quieres enviar whatsapp a:"),
-    /* @__PURE__ */ React12.createElement("p", null, client.name),
-    /* @__PURE__ */ React12.createElement("p", null, client.phone)
+    /* @__PURE__ */ React13.createElement("h4", { className: "sender-title" }, "Quieres enviar whatsapp a:"),
+    /* @__PURE__ */ React13.createElement("p", null, client.name),
+    /* @__PURE__ */ React13.createElement("p", null, client.phone)
+  ), /* @__PURE__ */ React13.createElement(
+    Dialog,
+    {
+      isOpen: link != "" || sentDialogTitle != "" || sentDialogMessage != "",
+      onClose: () => {
+        setLink("");
+        setSentDialogTitle("");
+        setSentDialogMessage("");
+      }
+    },
+    sentDialogTitle != "" && /* @__PURE__ */ React13.createElement("h4", { className: "sender-title" }, sentDialogTitle),
+    sentDialogMessage != "" && /* @__PURE__ */ React13.createElement("h4", { className: "sender-title" }, sentDialogMessage),
+    link != "" && /* @__PURE__ */ React13.createElement("p", null, link)
+  ), /* @__PURE__ */ React13.createElement(
+    Dialog,
+    {
+      isOpen: linkWhatsapp != "",
+      onClose: () => setLinkWhatsapp(""),
+      actions: [
+        {
+          label: "Enviar",
+          onClick: () => handleSend(1),
+          className: "btn-success-600"
+        }
+      ]
+    },
+    /* @__PURE__ */ React13.createElement("h4", { className: "sender-title" }, "Copie el enlace y abra WhatsApp para enviar cotizaci\xF3n."),
+    /* @__PURE__ */ React13.createElement("p", null, linkWhatsapp)
   ));
 };
 var Sender_default = Sender;
 
 // src/plans/Plan.jsx
-var PlanGrid = ({ plan, price, form, client }) => {
+var PlanGrid = ({ plan, price, form, client, personalLines, debug }) => {
   var initPrice = price;
+  var intiFinalPrice = 0;
+  var values = null;
+  var fields = [];
+  if (plan.is_personalized) {
+    values = useSelector(form.store, (state) => state.values);
+  }
+  var newFinalPriceBase = 0;
+  function setNewFinalPrice(newFinalPrice) {
+    newFinalPriceBase += newFinalPrice;
+  }
+  useEffect2(() => {
+    var newFinalPrice = newFinalPriceBase;
+    for (let i = 0; i < fields.length; i++) {
+      newFinalPrice += parseFloat(values[fields[i]]);
+    }
+    setFinalPrice(newFinalPrice);
+  }, [values]);
   plan.top_lines.forEach((item) => {
     if (item.type === "discount") {
       initPrice = price - price * item.percent / 100;
+      intiFinalPrice = price - price * item.percent / 100;
+    }
+  });
+  plan.lines.forEach((item) => {
+    if (plan.is_personalized) {
+      if (item.type === "personalized-fillable") {
+        fields.push("fill_" + item.id);
+      } else if (item.type === "personalized-months") {
+        fields.push("fill_" + item.line.id);
+      }
     }
   });
   const [realPrice, setRealPrice] = useState8(initPrice);
+  const [finalPrice, setFinalPrice] = useState8(intiFinalPrice);
   function discountChanged(newDiscount) {
     setRealPrice(price - newDiscount);
   }
-  return /* @__PURE__ */ React13.createElement(React13.Fragment, null, /* @__PURE__ */ React13.createElement("div", { className: "plan-div" }, /* @__PURE__ */ React13.createElement("h3", { className: "plan-title" }, plan.title), /* @__PURE__ */ React13.createElement("table", { className: "table" }, /* @__PURE__ */ React13.createElement("tbody", null, plan.top_lines.map(
+  return /* @__PURE__ */ React14.createElement(React14.Fragment, null, /* @__PURE__ */ React14.createElement("div", { className: "plan-div" }, /* @__PURE__ */ React14.createElement("h3", { className: "plan-title" }, plan.title), /* @__PURE__ */ React14.createElement("table", { className: "table" }, /* @__PURE__ */ React14.createElement("tbody", null, plan.top_lines.map(
     (item, itemIndex) => {
       switch (item.type) {
         case "line":
-          return /* @__PURE__ */ React13.createElement(PlanLine_default, { key: itemIndex, item, price });
+          return /* @__PURE__ */ React14.createElement(PlanLine_default, { key: itemIndex, item, price });
         case "discount":
-          return /* @__PURE__ */ React13.createElement(PlanLine_default, { key: itemIndex, item, price: price * item.percent / 100 });
+          return /* @__PURE__ */ React14.createElement(PlanLine_default, { key: itemIndex, item, price: price * item.percent / 100 });
         default:
           return null;
       }
@@ -428,35 +526,50 @@ var PlanGrid = ({ plan, price, form, client }) => {
     (item, itemIndex) => {
       switch (item.type) {
         case "fillable":
-          return /* @__PURE__ */ React13.createElement(PlanLine_default, { key: itemIndex, item, price: realPrice * item.percent / 100 });
+          return /* @__PURE__ */ React14.createElement(PlanLine_default, { key: itemIndex, item, price: realPrice * item.percent / 100 });
         case "months":
-          return /* @__PURE__ */ React13.createElement(MonthsLine_default, { key: itemIndex, item, price: realPrice });
+          return /* @__PURE__ */ React14.createElement(MonthsLine_default, { key: itemIndex, item, price: realPrice * item.line.percent / 100 });
         case "personalized-discount":
-          return /* @__PURE__ */ React13.createElement(EditableLine_default, { key: itemIndex, form, item, price, onChange: discountChanged });
+          return /* @__PURE__ */ React14.createElement(EditableLine_default, { key: itemIndex, form, item, price, onChange: discountChanged });
         case "personalized-fillable":
-          return /* @__PURE__ */ React13.createElement(EditableLine_default, { key: itemIndex, form, item, price: realPrice });
+          return /* @__PURE__ */ React14.createElement(EditableLine_default, { key: itemIndex, form, item, price: realPrice });
         case "personalized-months":
-          return /* @__PURE__ */ React13.createElement(EditableMonths_default, { key: itemIndex, form, item, price: realPrice });
+          return /* @__PURE__ */ React14.createElement(EditableMonths_default, { key: itemIndex, form, item, price: realPrice });
+        case "fill-with-rest":
+          return /* @__PURE__ */ React14.createElement(FillWithRestLine_default, { key: itemIndex, form, item, price: realPrice, values, fields, getPrice: setNewFinalPrice });
         default:
-          return null;
+          const Component = personalLines[item.type];
+          return Component ? /* @__PURE__ */ React14.createElement(
+            Component,
+            {
+              key: itemIndex,
+              form,
+              item,
+              price: realPrice,
+              values,
+              fields,
+              getPrice: setNewFinalPrice
+            }
+          ) : null;
       }
     }
   ), plan.bottom_lines.map(
     (item, itemIndex) => {
       switch (item.type) {
         case "line":
-          return /* @__PURE__ */ React13.createElement(PlanLine_default, { key: itemIndex, item, price: realPrice });
+          return /* @__PURE__ */ React14.createElement(PlanLine_default, { key: itemIndex, item, price: finalPrice, newPrice: finalPrice });
         default:
           return null;
       }
     }
-  )))), client !== void 0 && /* @__PURE__ */ React13.createElement(Sender_default, { client }));
+  )))), client !== void 0 && /* @__PURE__ */ React14.createElement(Sender_default, { client }));
 };
 var Plan_default = PlanGrid;
 
 // src/plans/PlanGrid.jsx
 import { useRecordForm } from "shared-utils";
-var PlanGrid2 = ({ config, client, unit }) => {
+var PlanGrid2 = ({ config, client, unit, personalLines }) => {
+  console.log(config);
   const reset = () => {
     inputRefs.current.forEach((input) => {
       var _a;
@@ -464,9 +577,9 @@ var PlanGrid2 = ({ config, client, unit }) => {
     });
   };
   const { form, showSuccessDialog, setShowSuccessDialog } = useRecordForm(config.form, void 0, reset);
-  return /* @__PURE__ */ React14.createElement(React14.Fragment, null, config.plans.map((planRow, rowIndex) => /* @__PURE__ */ React14.createElement("div", { key: rowIndex, className: "plan-row", style: { display: "flex", flexDirection: "row", marginBottom: "10px" } }, planRow.map(
-    (plan, colIndex) => /* @__PURE__ */ React14.createElement(Plan_default, { key: colIndex, plan, price: unit.price, form })
-  ))), client && /* @__PURE__ */ React14.createElement(Sender_default, { client, unit, form }));
+  return /* @__PURE__ */ React15.createElement(React15.Fragment, null, config.plans.map((planRow, rowIndex) => /* @__PURE__ */ React15.createElement("div", { key: rowIndex, className: "plan-row", style: { display: "flex", flexDirection: "row", marginBottom: "10px" } }, planRow.map(
+    (plan, colIndex) => /* @__PURE__ */ React15.createElement(Plan_default, { key: colIndex, plan, price: unit.price, form, personalLines, debug: rowIndex + "-" + colIndex })
+  ))), client && /* @__PURE__ */ React15.createElement(Sender_default, { client, unit, form }));
 };
 var PlanGrid_default = PlanGrid2;
 export {
