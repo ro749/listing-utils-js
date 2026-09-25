@@ -1,3 +1,6 @@
+// src/index.jsx
+import { configureEnums, getEnum } from "shared-utils";
+
 // src/image_map/ImageMapPro.jsx
 import React4, { useState as useState4 } from "react";
 
@@ -582,7 +585,120 @@ var PlanGrid2 = ({ config, client, unit, personalLines }) => {
   ))), client && /* @__PURE__ */ React15.createElement(Sender_default, { client, unit, form }));
 };
 var PlanGrid_default = PlanGrid2;
+
+// src/views/Dashboard.jsx
+import React21 from "react";
+
+// unplugin-icons:~icons/mingcute/user-follow-fill.jsx
+import * as React16 from "react";
+import { forwardRef as forwardRef4 } from "react";
+var mingcuteUserFollowFill = ({
+  title,
+  titleId,
+  ...props
+}, ref) => /* @__PURE__ */ React16.createElement("svg", { viewBox: "0 0 24 24", width: "1.2em", height: "1.2em", ref, "aria-labelledby": titleId, ...props }, title ? /* @__PURE__ */ React16.createElement("title", { id: titleId }, title) : null, /* @__PURE__ */ React16.createElement("path", { fill: "currentColor", d: "M16 14a5 5 0 0 1 5 5v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1a5 5 0 0 1 5-5zm5.414-4.919a1 1 0 0 1 1.414 1.414L20 13.325q-.037.036-.076.068a1 1 0 0 1-1.338-.069l-1.414-1.414a1.001 1.001 0 0 1 1.414-1.415l.707.708zM12 2a5 5 0 1 1 0 10a5 5 0 0 1 0-10" }));
+var ForwardRef4 = forwardRef4(mingcuteUserFollowFill);
+var user_follow_fill_default = ForwardRef4;
+
+// unplugin-icons:~icons/iconamoon/discount-fill.jsx
+import * as React17 from "react";
+import { forwardRef as forwardRef5 } from "react";
+var iconamoonDiscountFill = ({
+  title,
+  titleId,
+  ...props
+}, ref) => /* @__PURE__ */ React17.createElement("svg", { viewBox: "0 0 24 24", width: "1.2em", height: "1.2em", ref, "aria-labelledby": titleId, ...props }, title ? /* @__PURE__ */ React17.createElement("title", { id: titleId }, title) : null, /* @__PURE__ */ React17.createElement("path", { fill: "currentColor", fillRule: "evenodd", d: "M9.765 2.998a3 3 0 0 1 4.47 0l.7.782a1 1 0 0 0 .801.332l1.05-.058a3 3 0 0 1 3.16 3.16l-.058 1.05a1 1 0 0 0 .332.8l.783.7a3 3 0 0 1 0 4.471l-.783.7a1 1 0 0 0-.332.801l.058 1.05a3 3 0 0 1-3.16 3.16l-1.05-.058a1 1 0 0 0-.8.332l-.7.783a3 3 0 0 1-4.471 0l-.7-.783a1 1 0 0 0-.801-.332l-1.05.058a3 3 0 0 1-3.16-3.16l.058-1.05a1 1 0 0 0-.332-.8l-.782-.7a3 3 0 0 1 0-4.471l.782-.7a1 1 0 0 0 .332-.801l-.058-1.05a3 3 0 0 1 3.16-3.16l1.05.058a1 1 0 0 0 .8-.332zm5.942 5.295a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414l6-6a1 1 0 0 1 1.414 0M9.5 8A1.5 1.5 0 0 0 8 9.5v.01a1.5 1.5 0 0 0 1.5 1.5h.01a1.5 1.5 0 0 0 1.5-1.5V9.5A1.5 1.5 0 0 0 9.51 8zm5 5a1.5 1.5 0 0 0-1.5 1.5v.01a1.5 1.5 0 0 0 1.5 1.5h.01a1.5 1.5 0 0 0 1.5-1.5v-.01a1.5 1.5 0 0 0-1.5-1.5z", clipRule: "evenodd" }));
+var ForwardRef5 = forwardRef5(iconamoonDiscountFill);
+var discount_fill_default = ForwardRef5;
+
+// unplugin-icons:~icons/mdi/message-text.jsx
+import * as React18 from "react";
+import { forwardRef as forwardRef6 } from "react";
+var mdiMessageText = ({
+  title,
+  titleId,
+  ...props
+}, ref) => /* @__PURE__ */ React18.createElement("svg", { viewBox: "0 0 24 24", width: "1.2em", height: "1.2em", ref, "aria-labelledby": titleId, ...props }, title ? /* @__PURE__ */ React18.createElement("title", { id: titleId }, title) : null, /* @__PURE__ */ React18.createElement("path", { fill: "currentColor", d: "M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2M6 9h12v2H6m8 3H6v-2h8m4-4H6V6h12" }));
+var ForwardRef6 = forwardRef6(mdiMessageText);
+
+// unplugin-icons:~icons/streamline/bag-dollar-solid.jsx
+import * as React19 from "react";
+import { forwardRef as forwardRef7 } from "react";
+var streamlineBagDollarSolid = ({
+  title,
+  titleId,
+  ...props
+}, ref) => /* @__PURE__ */ React19.createElement("svg", { viewBox: "0 0 14 14", width: "1.2em", height: "1.2em", ref, "aria-labelledby": titleId, ...props }, title ? /* @__PURE__ */ React19.createElement("title", { id: titleId }, title) : null, /* @__PURE__ */ React19.createElement("path", { fill: "currentColor", fillRule: "evenodd", d: "M13.463 9.692C13.463 12.664 10.77 14 7 14S.537 12.664.537 9.713c0-3.231 1.616-4.868 4.847-6.505L4.24 1.077A.7.7 0 0 1 4.843 0H9.41a.7.7 0 0 1 .603 1.023L8.616 3.208c3.23 1.615 4.847 3.252 4.847 6.484M7.625 4.887a.625.625 0 1 0-1.25 0v.627a1.74 1.74 0 0 0-.298 3.44l1.473.322a.625.625 0 0 1-.133 1.236h-.834a.625.625 0 0 1-.59-.416a.625.625 0 1 0-1.178.416a1.88 1.88 0 0 0 1.56 1.239v.636a.625.625 0 1 0 1.25 0v-.636a1.876 1.876 0 0 0 .192-3.696l-1.473-.322a.49.49 0 0 1 .105-.97h.968a.62.62 0 0 1 .59.416a.625.625 0 0 0 1.178-.417a1.87 1.87 0 0 0-1.56-1.238z", clipRule: "evenodd" }));
+var ForwardRef7 = forwardRef7(streamlineBagDollarSolid);
+
+// src/views/Dashboard.jsx
+import { Chart as Chart2, ChartType as ChartType2 } from "shared-utils";
+
+// src/views/DataContainer.jsx
+import React20 from "react";
+import { Chart, ChartType } from "shared-utils";
+var DataContainer = ({
+  bgColor,
+  iconBgColor,
+  Icon,
+  title,
+  data,
+  chart,
+  chartColor
+}) => {
+  return /* @__PURE__ */ React20.createElement(React20.Fragment, null, /* @__PURE__ */ React20.createElement("div", { className: "col-xxl-4 col-sm-6" }, /* @__PURE__ */ React20.createElement("div", { className: "data-container " + bgColor }, /* @__PURE__ */ React20.createElement("div", { className: "data-div" }, /* @__PURE__ */ React20.createElement("div", { className: "icon-area " + iconBgColor }, /* @__PURE__ */ React20.createElement(Icon, null)), /* @__PURE__ */ React20.createElement("div", null, /* @__PURE__ */ React20.createElement("span", { className: "data-title" }, title), /* @__PURE__ */ React20.createElement("h6", { className: "data-value" }, data))), /* @__PURE__ */ React20.createElement(Chart, { chart, type: ChartType.LINE, width: 80, height: 42, color: chartColor }))));
+};
+var DataContainer_default = DataContainer;
+
+// src/views/Dashboard.jsx
+var Dashboard = ({ info, charts }) => {
+  return /* @__PURE__ */ React21.createElement(React21.Fragment, null, /* @__PURE__ */ React21.createElement("h3", { style: { color: "#333", fontWeight: 600 } }, "Dashboard"), /* @__PURE__ */ React21.createElement("div", { className: "row gy-4" }, /* @__PURE__ */ React21.createElement(
+    DataContainer_default,
+    {
+      bgColor: "bg-gradient-end-1",
+      iconBgColor: "bg-primary-600",
+      Icon: user_follow_fill_default,
+      title: "Asesores",
+      data: info.total_asesores,
+      chart: charts.asesorsChart
+    }
+  ), /* @__PURE__ */ React21.createElement(
+    DataContainer_default,
+    {
+      bgColor: "bg-gradient-end-2",
+      iconBgColor: "bg-success-main",
+      Icon: user_follow_fill_default,
+      title: "Clientes",
+      data: info.total_clients,
+      chart: charts.clientsChart,
+      chartColor: "#45b369"
+    }
+  ), /* @__PURE__ */ React21.createElement(
+    DataContainer_default,
+    {
+      bgColor: "bg-gradient-end-3",
+      iconBgColor: "bg-yellow",
+      Icon: discount_fill_default,
+      title: "Unidades Vendidas",
+      data: info.sold_units,
+      chart: charts.soldUnitsChart,
+      chartColor: "#f4941e"
+    }
+  )));
+};
+var Dashboard_default = Dashboard;
+
+// src/index.jsx
+configureEnums({
+  AsesorCategories: ["Interno", "Externo", "Inmobiliario"],
+  AsesorStatus: ["Activo", "Inactivo"],
+  ClientCategories: ["Nuevo", "Perfilado", "Negociaci\xF3n", "Cerrado"],
+  ClientPriorities: ["Alta", "Media", "Baja"],
+  QuotationStatus: ["Pendiente", "Enviada", "Cancelada"],
+  UnitsStatus: ["Disponible", "Vendido", "Apartado", "Bloqueado"]
+});
 export {
+  Dashboard_default as Dashboard,
   ImageMapPro_default as ImageMapPro,
   PlanGrid_default as PlanGrid
 };

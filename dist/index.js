@@ -29,10 +29,12 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.jsx
 var src_exports = {};
 __export(src_exports, {
+  Dashboard: () => Dashboard_default,
   ImageMapPro: () => ImageMapPro_default,
   PlanGrid: () => PlanGrid_default
 });
 module.exports = __toCommonJS(src_exports);
+var import_shared_utils8 = require("shared-utils");
 
 // src/image_map/ImageMapPro.jsx
 var import_react4 = __toESM(require("react"));
@@ -618,8 +620,121 @@ var PlanGrid2 = ({ config, client, unit, personalLines }) => {
   ))), client && /* @__PURE__ */ import_react15.default.createElement(Sender_default, { client, unit, form }));
 };
 var PlanGrid_default = PlanGrid2;
+
+// src/views/Dashboard.jsx
+var import_react21 = __toESM(require("react"));
+
+// unplugin-icons:~icons/mingcute/user-follow-fill.jsx
+var React16 = __toESM(require("react"));
+var import_react16 = require("react");
+var mingcuteUserFollowFill = ({
+  title,
+  titleId,
+  ...props
+}, ref) => /* @__PURE__ */ React16.createElement("svg", { viewBox: "0 0 24 24", width: "1.2em", height: "1.2em", ref, "aria-labelledby": titleId, ...props }, title ? /* @__PURE__ */ React16.createElement("title", { id: titleId }, title) : null, /* @__PURE__ */ React16.createElement("path", { fill: "currentColor", d: "M16 14a5 5 0 0 1 5 5v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1a5 5 0 0 1 5-5zm5.414-4.919a1 1 0 0 1 1.414 1.414L20 13.325q-.037.036-.076.068a1 1 0 0 1-1.338-.069l-1.414-1.414a1.001 1.001 0 0 1 1.414-1.415l.707.708zM12 2a5 5 0 1 1 0 10a5 5 0 0 1 0-10" }));
+var ForwardRef4 = (0, import_react16.forwardRef)(mingcuteUserFollowFill);
+var user_follow_fill_default = ForwardRef4;
+
+// unplugin-icons:~icons/iconamoon/discount-fill.jsx
+var React17 = __toESM(require("react"));
+var import_react17 = require("react");
+var iconamoonDiscountFill = ({
+  title,
+  titleId,
+  ...props
+}, ref) => /* @__PURE__ */ React17.createElement("svg", { viewBox: "0 0 24 24", width: "1.2em", height: "1.2em", ref, "aria-labelledby": titleId, ...props }, title ? /* @__PURE__ */ React17.createElement("title", { id: titleId }, title) : null, /* @__PURE__ */ React17.createElement("path", { fill: "currentColor", fillRule: "evenodd", d: "M9.765 2.998a3 3 0 0 1 4.47 0l.7.782a1 1 0 0 0 .801.332l1.05-.058a3 3 0 0 1 3.16 3.16l-.058 1.05a1 1 0 0 0 .332.8l.783.7a3 3 0 0 1 0 4.471l-.783.7a1 1 0 0 0-.332.801l.058 1.05a3 3 0 0 1-3.16 3.16l-1.05-.058a1 1 0 0 0-.8.332l-.7.783a3 3 0 0 1-4.471 0l-.7-.783a1 1 0 0 0-.801-.332l-1.05.058a3 3 0 0 1-3.16-3.16l.058-1.05a1 1 0 0 0-.332-.8l-.782-.7a3 3 0 0 1 0-4.471l.782-.7a1 1 0 0 0 .332-.801l-.058-1.05a3 3 0 0 1 3.16-3.16l1.05.058a1 1 0 0 0 .8-.332zm5.942 5.295a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414l6-6a1 1 0 0 1 1.414 0M9.5 8A1.5 1.5 0 0 0 8 9.5v.01a1.5 1.5 0 0 0 1.5 1.5h.01a1.5 1.5 0 0 0 1.5-1.5V9.5A1.5 1.5 0 0 0 9.51 8zm5 5a1.5 1.5 0 0 0-1.5 1.5v.01a1.5 1.5 0 0 0 1.5 1.5h.01a1.5 1.5 0 0 0 1.5-1.5v-.01a1.5 1.5 0 0 0-1.5-1.5z", clipRule: "evenodd" }));
+var ForwardRef5 = (0, import_react17.forwardRef)(iconamoonDiscountFill);
+var discount_fill_default = ForwardRef5;
+
+// unplugin-icons:~icons/mdi/message-text.jsx
+var React18 = __toESM(require("react"));
+var import_react18 = require("react");
+var mdiMessageText = ({
+  title,
+  titleId,
+  ...props
+}, ref) => /* @__PURE__ */ React18.createElement("svg", { viewBox: "0 0 24 24", width: "1.2em", height: "1.2em", ref, "aria-labelledby": titleId, ...props }, title ? /* @__PURE__ */ React18.createElement("title", { id: titleId }, title) : null, /* @__PURE__ */ React18.createElement("path", { fill: "currentColor", d: "M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2M6 9h12v2H6m8 3H6v-2h8m4-4H6V6h12" }));
+var ForwardRef6 = (0, import_react18.forwardRef)(mdiMessageText);
+
+// unplugin-icons:~icons/streamline/bag-dollar-solid.jsx
+var React19 = __toESM(require("react"));
+var import_react19 = require("react");
+var streamlineBagDollarSolid = ({
+  title,
+  titleId,
+  ...props
+}, ref) => /* @__PURE__ */ React19.createElement("svg", { viewBox: "0 0 14 14", width: "1.2em", height: "1.2em", ref, "aria-labelledby": titleId, ...props }, title ? /* @__PURE__ */ React19.createElement("title", { id: titleId }, title) : null, /* @__PURE__ */ React19.createElement("path", { fill: "currentColor", fillRule: "evenodd", d: "M13.463 9.692C13.463 12.664 10.77 14 7 14S.537 12.664.537 9.713c0-3.231 1.616-4.868 4.847-6.505L4.24 1.077A.7.7 0 0 1 4.843 0H9.41a.7.7 0 0 1 .603 1.023L8.616 3.208c3.23 1.615 4.847 3.252 4.847 6.484M7.625 4.887a.625.625 0 1 0-1.25 0v.627a1.74 1.74 0 0 0-.298 3.44l1.473.322a.625.625 0 0 1-.133 1.236h-.834a.625.625 0 0 1-.59-.416a.625.625 0 1 0-1.178.416a1.88 1.88 0 0 0 1.56 1.239v.636a.625.625 0 1 0 1.25 0v-.636a1.876 1.876 0 0 0 .192-3.696l-1.473-.322a.49.49 0 0 1 .105-.97h.968a.62.62 0 0 1 .59.416a.625.625 0 0 0 1.178-.417a1.87 1.87 0 0 0-1.56-1.238z", clipRule: "evenodd" }));
+var ForwardRef7 = (0, import_react19.forwardRef)(streamlineBagDollarSolid);
+
+// src/views/Dashboard.jsx
+var import_shared_utils7 = require("shared-utils");
+
+// src/views/DataContainer.jsx
+var import_react20 = __toESM(require("react"));
+var import_shared_utils6 = require("shared-utils");
+var DataContainer = ({
+  bgColor,
+  iconBgColor,
+  Icon,
+  title,
+  data,
+  chart,
+  chartColor
+}) => {
+  return /* @__PURE__ */ import_react20.default.createElement(import_react20.default.Fragment, null, /* @__PURE__ */ import_react20.default.createElement("div", { className: "col-xxl-4 col-sm-6" }, /* @__PURE__ */ import_react20.default.createElement("div", { className: "data-container " + bgColor }, /* @__PURE__ */ import_react20.default.createElement("div", { className: "data-div" }, /* @__PURE__ */ import_react20.default.createElement("div", { className: "icon-area " + iconBgColor }, /* @__PURE__ */ import_react20.default.createElement(Icon, null)), /* @__PURE__ */ import_react20.default.createElement("div", null, /* @__PURE__ */ import_react20.default.createElement("span", { className: "data-title" }, title), /* @__PURE__ */ import_react20.default.createElement("h6", { className: "data-value" }, data))), /* @__PURE__ */ import_react20.default.createElement(import_shared_utils6.Chart, { chart, type: import_shared_utils6.ChartType.LINE, width: 80, height: 42, color: chartColor }))));
+};
+var DataContainer_default = DataContainer;
+
+// src/views/Dashboard.jsx
+var Dashboard = ({ info, charts }) => {
+  return /* @__PURE__ */ import_react21.default.createElement(import_react21.default.Fragment, null, /* @__PURE__ */ import_react21.default.createElement("h3", { style: { color: "#333", fontWeight: 600 } }, "Dashboard"), /* @__PURE__ */ import_react21.default.createElement("div", { className: "row gy-4" }, /* @__PURE__ */ import_react21.default.createElement(
+    DataContainer_default,
+    {
+      bgColor: "bg-gradient-end-1",
+      iconBgColor: "bg-primary-600",
+      Icon: user_follow_fill_default,
+      title: "Asesores",
+      data: info.total_asesores,
+      chart: charts.asesorsChart
+    }
+  ), /* @__PURE__ */ import_react21.default.createElement(
+    DataContainer_default,
+    {
+      bgColor: "bg-gradient-end-2",
+      iconBgColor: "bg-success-main",
+      Icon: user_follow_fill_default,
+      title: "Clientes",
+      data: info.total_clients,
+      chart: charts.clientsChart,
+      chartColor: "#45b369"
+    }
+  ), /* @__PURE__ */ import_react21.default.createElement(
+    DataContainer_default,
+    {
+      bgColor: "bg-gradient-end-3",
+      iconBgColor: "bg-yellow",
+      Icon: discount_fill_default,
+      title: "Unidades Vendidas",
+      data: info.sold_units,
+      chart: charts.soldUnitsChart,
+      chartColor: "#f4941e"
+    }
+  )));
+};
+var Dashboard_default = Dashboard;
+
+// src/index.jsx
+(0, import_shared_utils8.configureEnums)({
+  AsesorCategories: ["Interno", "Externo", "Inmobiliario"],
+  AsesorStatus: ["Activo", "Inactivo"],
+  ClientCategories: ["Nuevo", "Perfilado", "Negociaci\xF3n", "Cerrado"],
+  ClientPriorities: ["Alta", "Media", "Baja"],
+  QuotationStatus: ["Pendiente", "Enviada", "Cancelada"],
+  UnitsStatus: ["Disponible", "Vendido", "Apartado", "Bloqueado"]
+});
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
+  Dashboard,
   ImageMapPro,
   PlanGrid
 });
