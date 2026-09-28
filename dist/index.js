@@ -655,6 +655,7 @@ var mdiMessageText = ({
   ...props
 }, ref) => /* @__PURE__ */ React18.createElement("svg", { viewBox: "0 0 24 24", width: "1.2em", height: "1.2em", ref, "aria-labelledby": titleId, ...props }, title ? /* @__PURE__ */ React18.createElement("title", { id: titleId }, title) : null, /* @__PURE__ */ React18.createElement("path", { fill: "currentColor", d: "M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2M6 9h12v2H6m8 3H6v-2h8m4-4H6V6h12" }));
 var ForwardRef6 = (0, import_react18.forwardRef)(mdiMessageText);
+var message_text_default = ForwardRef6;
 
 // unplugin-icons:~icons/streamline/bag-dollar-solid.jsx
 var React19 = __toESM(require("react"));
@@ -665,6 +666,7 @@ var streamlineBagDollarSolid = ({
   ...props
 }, ref) => /* @__PURE__ */ React19.createElement("svg", { viewBox: "0 0 14 14", width: "1.2em", height: "1.2em", ref, "aria-labelledby": titleId, ...props }, title ? /* @__PURE__ */ React19.createElement("title", { id: titleId }, title) : null, /* @__PURE__ */ React19.createElement("path", { fill: "currentColor", fillRule: "evenodd", d: "M13.463 9.692C13.463 12.664 10.77 14 7 14S.537 12.664.537 9.713c0-3.231 1.616-4.868 4.847-6.505L4.24 1.077A.7.7 0 0 1 4.843 0H9.41a.7.7 0 0 1 .603 1.023L8.616 3.208c3.23 1.615 4.847 3.252 4.847 6.484M7.625 4.887a.625.625 0 1 0-1.25 0v.627a1.74 1.74 0 0 0-.298 3.44l1.473.322a.625.625 0 0 1-.133 1.236h-.834a.625.625 0 0 1-.59-.416a.625.625 0 1 0-1.178.416a1.88 1.88 0 0 0 1.56 1.239v.636a.625.625 0 1 0 1.25 0v-.636a1.876 1.876 0 0 0 .192-3.696l-1.473-.322a.49.49 0 0 1 .105-.97h.968a.62.62 0 0 1 .59.416a.625.625 0 0 0 1.178-.417a1.87 1.87 0 0 0-1.56-1.238z", clipRule: "evenodd" }));
 var ForwardRef7 = (0, import_react19.forwardRef)(streamlineBagDollarSolid);
+var bag_dollar_solid_default = ForwardRef7;
 
 // src/views/Dashboard.jsx
 var import_shared_utils7 = require("shared-utils");
@@ -681,7 +683,7 @@ var DataContainer = ({
   chart,
   chartColor
 }) => {
-  return /* @__PURE__ */ import_react20.default.createElement(import_react20.default.Fragment, null, /* @__PURE__ */ import_react20.default.createElement("div", { className: "col-xxl-4 col-sm-6" }, /* @__PURE__ */ import_react20.default.createElement("div", { className: "data-container " + bgColor }, /* @__PURE__ */ import_react20.default.createElement("div", { className: "data-div" }, /* @__PURE__ */ import_react20.default.createElement("div", { className: "icon-area " + iconBgColor }, /* @__PURE__ */ import_react20.default.createElement(Icon, null)), /* @__PURE__ */ import_react20.default.createElement("div", null, /* @__PURE__ */ import_react20.default.createElement("span", { className: "data-title" }, title), /* @__PURE__ */ import_react20.default.createElement("h6", { className: "data-value" }, data))), /* @__PURE__ */ import_react20.default.createElement(import_shared_utils6.Chart, { chart, type: import_shared_utils6.ChartType.LINE, width: 80, height: 42, color: chartColor }))));
+  return /* @__PURE__ */ import_react20.default.createElement(import_react20.default.Fragment, null, /* @__PURE__ */ import_react20.default.createElement("div", { className: "col-xxl-4 col-sm-6" }, /* @__PURE__ */ import_react20.default.createElement("div", { className: "data-container " + bgColor }, /* @__PURE__ */ import_react20.default.createElement("div", { className: "data-div" }, /* @__PURE__ */ import_react20.default.createElement("div", { className: "icon-area " + iconBgColor }, /* @__PURE__ */ import_react20.default.createElement(Icon, null)), /* @__PURE__ */ import_react20.default.createElement("div", null, /* @__PURE__ */ import_react20.default.createElement("span", { className: "data-title" }, title), /* @__PURE__ */ import_react20.default.createElement("h6", { className: "data-value" }, data))), chart && /* @__PURE__ */ import_react20.default.createElement(import_shared_utils6.Chart, { chart, type: import_shared_utils6.ChartType.LINE, width: 80, height: 42, color: chartColor, gradient: true }))));
 };
 var DataContainer_default = DataContainer;
 
@@ -718,6 +720,35 @@ var Dashboard = ({ info, charts }) => {
       data: info.sold_units,
       chart: charts.soldUnitsChart,
       chartColor: "#f4941e"
+    }
+  ), /* @__PURE__ */ import_react21.default.createElement(
+    DataContainer_default,
+    {
+      bgColor: "bg-gradient-end-4",
+      iconBgColor: "bg-purple",
+      Icon: message_text_default,
+      title: "Unidades Disponibles",
+      data: info.available_units,
+      chart: charts.availableUnitsChart,
+      chartColor: "#8252e9"
+    }
+  ), /* @__PURE__ */ import_react21.default.createElement(
+    DataContainer_default,
+    {
+      bgColor: "bg-gradient-end-5",
+      iconBgColor: "bg-pink",
+      Icon: bag_dollar_solid_default,
+      title: "Unidades Disponibles Valor",
+      data: info.available_units_value
+    }
+  ), /* @__PURE__ */ import_react21.default.createElement(
+    DataContainer_default,
+    {
+      bgColor: "bg-gradient-end-6",
+      iconBgColor: "bg-cyan-500",
+      Icon: bag_dollar_solid_default,
+      title: "Unidades Disponibles Promedio",
+      data: info.available_units_avg
     }
   )));
 };

@@ -35,6 +35,29 @@ const Dashboard = ({info, charts}) => {
           chart={charts.soldUnitsChart}
           chartColor={'#f4941e'}
         />
+        <DataContainer
+          bgColor={"bg-gradient-end-4"}
+          iconBgColor={"bg-purple"}
+          Icon={MdiMessageText}
+          title={'Unidades Disponibles'}
+          data={info.available_units}
+          chart={charts.availableUnitsChart}
+          chartColor={'#8252e9'}
+        />
+        <DataContainer
+          bgColor={"bg-gradient-end-5"}
+          iconBgColor={"bg-pink"}
+          Icon={StreamlineBagDollarSolid}
+          title={'Unidades Disponibles Valor'}
+          data={info.available_units_value}
+        />
+        <DataContainer
+          bgColor={"bg-gradient-end-6"}
+          iconBgColor={"bg-cyan-500"}
+          Icon={StreamlineBagDollarSolid}
+          title={'Unidades Disponibles Promedio'}
+          data={info.available_units_avg}
+        />
       </div>
 
     </>;

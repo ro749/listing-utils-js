@@ -21,7 +21,9 @@ const DataContainer = ({
             <h6 className='data-value'>{data}</h6>
           </div>
         </div>
-        <Chart chart={chart} type={ChartType.LINE} width={80} height={42} color={chartColor} />
+        {chart && (
+          <Chart chart={chart} type={ChartType.LINE} width={80} height={42} color={chartColor} gradient={true} />
+        )}
       </div>
     </div>
   </>;
