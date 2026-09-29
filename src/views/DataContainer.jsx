@@ -22,7 +22,14 @@ const DataContainer = ({
           </div>
         </div>
         {chart && (
-          <Chart chart={chart} type={ChartType.LINE} width={80} height={42} color={chartColor} gradient={true} />
+          <Chart
+            chart={chart}
+            type={ChartType.LINE}
+            width={80}
+            height={42}
+            color={chartColor}
+            gradient={true}
+          />
         )}
       </div>
     </div>

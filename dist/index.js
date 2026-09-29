@@ -683,13 +683,23 @@ var DataContainer = ({
   chart,
   chartColor
 }) => {
-  return /* @__PURE__ */ import_react20.default.createElement(import_react20.default.Fragment, null, /* @__PURE__ */ import_react20.default.createElement("div", { className: "col-xxl-4 col-sm-6" }, /* @__PURE__ */ import_react20.default.createElement("div", { className: "data-container " + bgColor }, /* @__PURE__ */ import_react20.default.createElement("div", { className: "data-div" }, /* @__PURE__ */ import_react20.default.createElement("div", { className: "icon-area " + iconBgColor }, /* @__PURE__ */ import_react20.default.createElement(Icon, null)), /* @__PURE__ */ import_react20.default.createElement("div", null, /* @__PURE__ */ import_react20.default.createElement("span", { className: "data-title" }, title), /* @__PURE__ */ import_react20.default.createElement("h6", { className: "data-value" }, data))), chart && /* @__PURE__ */ import_react20.default.createElement(import_shared_utils6.Chart, { chart, type: import_shared_utils6.ChartType.LINE, width: 80, height: 42, color: chartColor, gradient: true }))));
+  return /* @__PURE__ */ import_react20.default.createElement(import_react20.default.Fragment, null, /* @__PURE__ */ import_react20.default.createElement("div", { className: "col-xxl-4 col-sm-6" }, /* @__PURE__ */ import_react20.default.createElement("div", { className: "data-container " + bgColor }, /* @__PURE__ */ import_react20.default.createElement("div", { className: "data-div" }, /* @__PURE__ */ import_react20.default.createElement("div", { className: "icon-area " + iconBgColor }, /* @__PURE__ */ import_react20.default.createElement(Icon, null)), /* @__PURE__ */ import_react20.default.createElement("div", null, /* @__PURE__ */ import_react20.default.createElement("span", { className: "data-title" }, title), /* @__PURE__ */ import_react20.default.createElement("h6", { className: "data-value" }, data))), chart && /* @__PURE__ */ import_react20.default.createElement(
+    import_shared_utils6.Chart,
+    {
+      chart,
+      type: import_shared_utils6.ChartType.LINE,
+      width: 80,
+      height: 42,
+      color: chartColor,
+      gradient: true
+    }
+  ))));
 };
 var DataContainer_default = DataContainer;
 
 // src/views/Dashboard.jsx
 var Dashboard = ({ info, charts }) => {
-  return /* @__PURE__ */ import_react21.default.createElement(import_react21.default.Fragment, null, /* @__PURE__ */ import_react21.default.createElement("h3", { style: { color: "#333", fontWeight: 600 } }, "Dashboard"), /* @__PURE__ */ import_react21.default.createElement("div", { className: "row gy-4" }, /* @__PURE__ */ import_react21.default.createElement(
+  return /* @__PURE__ */ import_react21.default.createElement(import_react21.default.Fragment, null, /* @__PURE__ */ import_react21.default.createElement("h3", { style: { color: "#333", fontWeight: 600 } }, "Dashboard"), /* @__PURE__ */ import_react21.default.createElement("div", { class: "row gy-4" }, /* @__PURE__ */ import_react21.default.createElement("div", { className: "row gy-4", style: { width: "66.666%" } }, /* @__PURE__ */ import_react21.default.createElement(
     DataContainer_default,
     {
       bgColor: "bg-gradient-end-1",
@@ -750,7 +760,7 @@ var Dashboard = ({ info, charts }) => {
       title: "Unidades Disponibles Promedio",
       data: info.available_units_avg
     }
-  )));
+  )), /* @__PURE__ */ import_react21.default.createElement("div", { class: "col-xxl-4", style: { width: "33.333%" } }, /* @__PURE__ */ import_react21.default.createElement("div", { class: "card h-100 radius-8 border" }, /* @__PURE__ */ import_react21.default.createElement("div", { class: "card-body p-24" }, /* @__PURE__ */ import_react21.default.createElement("div", { class: "d-flex align-items-center flex-wrap gap-2 justify-content-between" }, /* @__PURE__ */ import_react21.default.createElement("div", null, /* @__PURE__ */ import_react21.default.createElement("h6", { class: "mb-2 fw-bold text-lg" }, "Cotizaciones"), /* @__PURE__ */ import_react21.default.createElement("span", { class: "text-sm fw-medium text-secondary-light" }, "Mensuales")), /* @__PURE__ */ import_react21.default.createElement("div", { class: "text-end" }, /* @__PURE__ */ import_react21.default.createElement("h6", { class: "mb-2 fw-bold text-lg" }, info.total_quotes), /* @__PURE__ */ import_react21.default.createElement("span", { class: "bg-success-focus ps-12 pe-12 pt-2 pb-2 rounded-2 fw-medium text-success-main text-sm" }, "+", info.new_quotes))), /* @__PURE__ */ import_react21.default.createElement(import_shared_utils7.Chart, { chart: charts.quotesChart, type: import_shared_utils7.ChartType.LINE, gradient: true, guides: import_shared_utils7.ChartGuides.XAXIS }))))));
 };
 var Dashboard_default = Dashboard;
 

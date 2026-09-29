@@ -634,7 +634,7 @@ var ForwardRef7 = forwardRef7(streamlineBagDollarSolid);
 var bag_dollar_solid_default = ForwardRef7;
 
 // src/views/Dashboard.jsx
-import { Chart as Chart2, ChartType as ChartType2 } from "shared-utils";
+import { Chart as Chart2, ChartType as ChartType2, ChartGuides } from "shared-utils";
 
 // src/views/DataContainer.jsx
 import React20 from "react";
@@ -648,13 +648,23 @@ var DataContainer = ({
   chart,
   chartColor
 }) => {
-  return /* @__PURE__ */ React20.createElement(React20.Fragment, null, /* @__PURE__ */ React20.createElement("div", { className: "col-xxl-4 col-sm-6" }, /* @__PURE__ */ React20.createElement("div", { className: "data-container " + bgColor }, /* @__PURE__ */ React20.createElement("div", { className: "data-div" }, /* @__PURE__ */ React20.createElement("div", { className: "icon-area " + iconBgColor }, /* @__PURE__ */ React20.createElement(Icon, null)), /* @__PURE__ */ React20.createElement("div", null, /* @__PURE__ */ React20.createElement("span", { className: "data-title" }, title), /* @__PURE__ */ React20.createElement("h6", { className: "data-value" }, data))), chart && /* @__PURE__ */ React20.createElement(Chart, { chart, type: ChartType.LINE, width: 80, height: 42, color: chartColor, gradient: true }))));
+  return /* @__PURE__ */ React20.createElement(React20.Fragment, null, /* @__PURE__ */ React20.createElement("div", { className: "col-xxl-4 col-sm-6" }, /* @__PURE__ */ React20.createElement("div", { className: "data-container " + bgColor }, /* @__PURE__ */ React20.createElement("div", { className: "data-div" }, /* @__PURE__ */ React20.createElement("div", { className: "icon-area " + iconBgColor }, /* @__PURE__ */ React20.createElement(Icon, null)), /* @__PURE__ */ React20.createElement("div", null, /* @__PURE__ */ React20.createElement("span", { className: "data-title" }, title), /* @__PURE__ */ React20.createElement("h6", { className: "data-value" }, data))), chart && /* @__PURE__ */ React20.createElement(
+    Chart,
+    {
+      chart,
+      type: ChartType.LINE,
+      width: 80,
+      height: 42,
+      color: chartColor,
+      gradient: true
+    }
+  ))));
 };
 var DataContainer_default = DataContainer;
 
 // src/views/Dashboard.jsx
 var Dashboard = ({ info, charts }) => {
-  return /* @__PURE__ */ React21.createElement(React21.Fragment, null, /* @__PURE__ */ React21.createElement("h3", { style: { color: "#333", fontWeight: 600 } }, "Dashboard"), /* @__PURE__ */ React21.createElement("div", { className: "row gy-4" }, /* @__PURE__ */ React21.createElement(
+  return /* @__PURE__ */ React21.createElement(React21.Fragment, null, /* @__PURE__ */ React21.createElement("h3", { style: { color: "#333", fontWeight: 600 } }, "Dashboard"), /* @__PURE__ */ React21.createElement("div", { class: "row gy-4" }, /* @__PURE__ */ React21.createElement("div", { className: "row gy-4", style: { width: "66.666%" } }, /* @__PURE__ */ React21.createElement(
     DataContainer_default,
     {
       bgColor: "bg-gradient-end-1",
@@ -715,7 +725,7 @@ var Dashboard = ({ info, charts }) => {
       title: "Unidades Disponibles Promedio",
       data: info.available_units_avg
     }
-  )));
+  )), /* @__PURE__ */ React21.createElement("div", { class: "col-xxl-4", style: { width: "33.333%" } }, /* @__PURE__ */ React21.createElement("div", { class: "card h-100 radius-8 border" }, /* @__PURE__ */ React21.createElement("div", { class: "card-body p-24" }, /* @__PURE__ */ React21.createElement("div", { class: "d-flex align-items-center flex-wrap gap-2 justify-content-between" }, /* @__PURE__ */ React21.createElement("div", null, /* @__PURE__ */ React21.createElement("h6", { class: "mb-2 fw-bold text-lg" }, "Cotizaciones"), /* @__PURE__ */ React21.createElement("span", { class: "text-sm fw-medium text-secondary-light" }, "Mensuales")), /* @__PURE__ */ React21.createElement("div", { class: "text-end" }, /* @__PURE__ */ React21.createElement("h6", { class: "mb-2 fw-bold text-lg" }, info.total_quotes), /* @__PURE__ */ React21.createElement("span", { class: "bg-success-focus ps-12 pe-12 pt-2 pb-2 rounded-2 fw-medium text-success-main text-sm" }, "+", info.new_quotes))), /* @__PURE__ */ React21.createElement(Chart2, { chart: charts.quotesChart, type: ChartType2.LINE, gradient: true, guides: ChartGuides.XAXIS }))))));
 };
 var Dashboard_default = Dashboard;
 
