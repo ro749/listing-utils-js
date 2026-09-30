@@ -68,21 +68,21 @@
 
 @media (min-width: 992px) {
     .plan-row{
-        display:flex; 
-        flex-direction: row; 
+        display:flex;
+        flex-direction: row;
         justify-content: space-evenly;
     }
 
     .plan-div{
         width: 100%;
     }
-    
+
 }
 
 @media (max-width: 991px) {
     .plan-row{
-        display:flex; 
-        flex-direction: column; 
+        display:flex;
+        flex-direction: column;
     }
 }
 
@@ -92,16 +92,32 @@
 
 .send-btn{
     display: flex;
-    align-items: center; 
+    align-items: center;
     gap: 6px;
 }
 
 .sender-title{
-    font-size: 20px !important; 
+    font-size: 20px !important;
 }
 
 .dialog-body{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.unit-bar {
+    width: 66px;
+}
+.unit-row {
+    display: grid;
+    grid-template-columns: 1fr 66px 48px;
+    align-items: center;
+    column-gap: 8px;
+    margin-bottom: 12px;
+}
+.unit-percent {
+    width: 48px;
+    text-align: left;
+    white-space: nowrap;
 }

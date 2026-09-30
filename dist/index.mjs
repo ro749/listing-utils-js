@@ -587,7 +587,7 @@ var PlanGrid2 = ({ config, client, unit, personalLines }) => {
 var PlanGrid_default = PlanGrid2;
 
 // src/views/Dashboard.jsx
-import React21 from "react";
+import React22 from "react";
 
 // unplugin-icons:~icons/mingcute/user-follow-fill.jsx
 import * as React16 from "react";
@@ -662,9 +662,33 @@ var DataContainer = ({
 };
 var DataContainer_default = DataContainer;
 
+// src/views/PercentContainer.jsx
+import React21 from "react";
+var PercentContainer = ({ title, bgColor, percent }) => {
+  return /* @__PURE__ */ React21.createElement(React21.Fragment, null, /* @__PURE__ */ React21.createElement("div", { className: "unit-row" }, /* @__PURE__ */ React21.createElement("span", { className: "text-primary-light fw-medium text-md ps-12" }, title), /* @__PURE__ */ React21.createElement("div", { className: "unit-bar" }, /* @__PURE__ */ React21.createElement(
+    "div",
+    {
+      className: "progress rounded-pill",
+      role: "progressbar",
+      "aria-valuemin": "0",
+      "aria-valuemax": "100"
+    },
+    /* @__PURE__ */ React21.createElement(
+      "div",
+      {
+        className: "progress-bar " + bgColor + " rounded-pill",
+        style: { width: percent }
+      }
+    )
+  )), /* @__PURE__ */ React21.createElement("span", { className: "unit-percent text-secondary-light font-xs fw-semibold" }, percent)));
+};
+var PercentContainer_default = PercentContainer;
+
 // src/views/Dashboard.jsx
 var Dashboard = ({ info, charts }) => {
-  return /* @__PURE__ */ React21.createElement(React21.Fragment, null, /* @__PURE__ */ React21.createElement("h3", { style: { color: "#333", fontWeight: 600 } }, "Dashboard"), /* @__PURE__ */ React21.createElement("div", { class: "row gy-4" }, /* @__PURE__ */ React21.createElement("div", { className: "row gy-4", style: { width: "66.666%" } }, /* @__PURE__ */ React21.createElement(
+  console.log("info.percent_available");
+  console.log(info.percent_available);
+  return /* @__PURE__ */ React22.createElement(React22.Fragment, null, /* @__PURE__ */ React22.createElement("h3", { style: { color: "#333", fontWeight: 600 } }, "Dashboard"), /* @__PURE__ */ React22.createElement("div", { className: "row gy-4" }, /* @__PURE__ */ React22.createElement("div", { className: "row gy-4" }, /* @__PURE__ */ React22.createElement("div", { className: "col-xxl-8", style: { width: "66.666%" } }, /* @__PURE__ */ React22.createElement("div", { className: "row gy-4" }, /* @__PURE__ */ React22.createElement(
     DataContainer_default,
     {
       bgColor: "bg-gradient-end-1",
@@ -674,7 +698,7 @@ var Dashboard = ({ info, charts }) => {
       data: info.total_asesores,
       chart: charts.asesorsChart
     }
-  ), /* @__PURE__ */ React21.createElement(
+  ), /* @__PURE__ */ React22.createElement(
     DataContainer_default,
     {
       bgColor: "bg-gradient-end-2",
@@ -685,7 +709,7 @@ var Dashboard = ({ info, charts }) => {
       chart: charts.clientsChart,
       chartColor: "#45b369"
     }
-  ), /* @__PURE__ */ React21.createElement(
+  ), /* @__PURE__ */ React22.createElement(
     DataContainer_default,
     {
       bgColor: "bg-gradient-end-3",
@@ -696,7 +720,7 @@ var Dashboard = ({ info, charts }) => {
       chart: charts.soldUnitsChart,
       chartColor: "#f4941e"
     }
-  ), /* @__PURE__ */ React21.createElement(
+  ), /* @__PURE__ */ React22.createElement(
     DataContainer_default,
     {
       bgColor: "bg-gradient-end-4",
@@ -707,7 +731,7 @@ var Dashboard = ({ info, charts }) => {
       chart: charts.availableUnitsChart,
       chartColor: "#8252e9"
     }
-  ), /* @__PURE__ */ React21.createElement(
+  ), /* @__PURE__ */ React22.createElement(
     DataContainer_default,
     {
       bgColor: "bg-gradient-end-5",
@@ -716,7 +740,7 @@ var Dashboard = ({ info, charts }) => {
       title: "Unidades Disponibles Valor",
       data: info.available_units_value
     }
-  ), /* @__PURE__ */ React21.createElement(
+  ), /* @__PURE__ */ React22.createElement(
     DataContainer_default,
     {
       bgColor: "bg-gradient-end-6",
@@ -725,7 +749,7 @@ var Dashboard = ({ info, charts }) => {
       title: "Unidades Disponibles Promedio",
       data: info.available_units_avg
     }
-  )), /* @__PURE__ */ React21.createElement("div", { class: "col-xxl-4", style: { width: "33.333%" } }, /* @__PURE__ */ React21.createElement("div", { class: "card h-100 radius-8 border" }, /* @__PURE__ */ React21.createElement("div", { class: "card-body p-24" }, /* @__PURE__ */ React21.createElement("div", { class: "d-flex align-items-center flex-wrap gap-2 justify-content-between" }, /* @__PURE__ */ React21.createElement("div", null, /* @__PURE__ */ React21.createElement("h6", { class: "mb-2 fw-bold text-lg" }, "Cotizaciones"), /* @__PURE__ */ React21.createElement("span", { class: "text-sm fw-medium text-secondary-light" }, "Mensuales")), /* @__PURE__ */ React21.createElement("div", { class: "text-end" }, /* @__PURE__ */ React21.createElement("h6", { class: "mb-2 fw-bold text-lg" }, info.total_quotes), /* @__PURE__ */ React21.createElement("span", { class: "bg-success-focus ps-12 pe-12 pt-2 pb-2 rounded-2 fw-medium text-success-main text-sm" }, "+", info.new_quotes))), /* @__PURE__ */ React21.createElement(Chart2, { chart: charts.quotesChart, type: ChartType2.LINE, gradient: true, guides: ChartGuides.XAXIS }))))));
+  ))), /* @__PURE__ */ React22.createElement("div", { className: "col-xxl-4", style: { width: "33.333%" } }, /* @__PURE__ */ React22.createElement("div", { className: "card h-100 radius-8 border" }, /* @__PURE__ */ React22.createElement("div", { className: "card-body p-24" }, /* @__PURE__ */ React22.createElement("div", { className: "d-flex align-items-center flex-wrap gap-2 justify-content-between" }, /* @__PURE__ */ React22.createElement("div", null, /* @__PURE__ */ React22.createElement("h6", { className: "mb-2 fw-bold text-lg" }, "Cotizaciones"), /* @__PURE__ */ React22.createElement("span", { className: "text-sm fw-medium text-secondary-light" }, "Mensuales")), /* @__PURE__ */ React22.createElement("div", { className: "text-end" }, /* @__PURE__ */ React22.createElement("h6", { className: "mb-2 fw-bold text-lg" }, info.total_quotes), /* @__PURE__ */ React22.createElement("span", { className: "bg-success-focus ps-12 pe-12 pt-2 pb-2 rounded-2 fw-medium text-success-main text-sm" }, "+", info.new_quotes))), /* @__PURE__ */ React22.createElement(Chart2, { chart: charts.quotesChart, type: ChartType2.LINE, gradient: true, guides: ChartGuides.XAXIS, height: 162 }))))), /* @__PURE__ */ React22.createElement("div", { className: "col-xxl-8" }, /* @__PURE__ */ React22.createElement("div", { className: "card h-100 radius-8 border-0" }, /* @__PURE__ */ React22.createElement("div", { className: "card-body p-24" }, /* @__PURE__ */ React22.createElement("div", { className: "d-flex align-items-center flex-wrap gap-2 justify-content-between" }, /* @__PURE__ */ React22.createElement("div", null, /* @__PURE__ */ React22.createElement("h6", { className: "mb-2 fw-bold text-lg" }, "Ventas"))), /* @__PURE__ */ React22.createElement(Chart2, { chart: charts.salesChart, type: ChartType2.BAR, guides: ChartGuides.FULL })))), /* @__PURE__ */ React22.createElement("div", { class: "col-xxl-4" }, /* @__PURE__ */ React22.createElement("div", { class: "row gy-4" }, /* @__PURE__ */ React22.createElement("div", { className: "col-xxl-12 col-sm-6" }, /* @__PURE__ */ React22.createElement("div", { className: "card h-100 radius-8 border-0" }, /* @__PURE__ */ React22.createElement("div", { className: "card-body p-24" }, /* @__PURE__ */ React22.createElement("div", { className: "d-flex align-items-center flex-wrap gap-2 justify-content-between" }, /* @__PURE__ */ React22.createElement("h6", { className: "mb-2 fw-bold text-lg" }, "Unidades")), /* @__PURE__ */ React22.createElement("div", { className: "mt-3" }, /* @__PURE__ */ React22.createElement(PercentContainer_default, { title: "Disponibles", bgColor: "bg-orange", percent: info.percent_available }), /* @__PURE__ */ React22.createElement(PercentContainer_default, { title: "Apartadas", bgColor: "bg-success-main", percent: info.percent_apartado }), /* @__PURE__ */ React22.createElement(PercentContainer_default, { title: "Vendidas", bgColor: "bg-info-main", percent: info.percent_sold })))))))));
 };
 var Dashboard_default = Dashboard;
 

@@ -622,7 +622,7 @@ var PlanGrid2 = ({ config, client, unit, personalLines }) => {
 var PlanGrid_default = PlanGrid2;
 
 // src/views/Dashboard.jsx
-var import_react21 = __toESM(require("react"));
+var import_react22 = __toESM(require("react"));
 
 // unplugin-icons:~icons/mingcute/user-follow-fill.jsx
 var React16 = __toESM(require("react"));
@@ -697,9 +697,33 @@ var DataContainer = ({
 };
 var DataContainer_default = DataContainer;
 
+// src/views/PercentContainer.jsx
+var import_react21 = __toESM(require("react"));
+var PercentContainer = ({ title, bgColor, percent }) => {
+  return /* @__PURE__ */ import_react21.default.createElement(import_react21.default.Fragment, null, /* @__PURE__ */ import_react21.default.createElement("div", { className: "unit-row" }, /* @__PURE__ */ import_react21.default.createElement("span", { className: "text-primary-light fw-medium text-md ps-12" }, title), /* @__PURE__ */ import_react21.default.createElement("div", { className: "unit-bar" }, /* @__PURE__ */ import_react21.default.createElement(
+    "div",
+    {
+      className: "progress rounded-pill",
+      role: "progressbar",
+      "aria-valuemin": "0",
+      "aria-valuemax": "100"
+    },
+    /* @__PURE__ */ import_react21.default.createElement(
+      "div",
+      {
+        className: "progress-bar " + bgColor + " rounded-pill",
+        style: { width: percent }
+      }
+    )
+  )), /* @__PURE__ */ import_react21.default.createElement("span", { className: "unit-percent text-secondary-light font-xs fw-semibold" }, percent)));
+};
+var PercentContainer_default = PercentContainer;
+
 // src/views/Dashboard.jsx
 var Dashboard = ({ info, charts }) => {
-  return /* @__PURE__ */ import_react21.default.createElement(import_react21.default.Fragment, null, /* @__PURE__ */ import_react21.default.createElement("h3", { style: { color: "#333", fontWeight: 600 } }, "Dashboard"), /* @__PURE__ */ import_react21.default.createElement("div", { class: "row gy-4" }, /* @__PURE__ */ import_react21.default.createElement("div", { className: "row gy-4", style: { width: "66.666%" } }, /* @__PURE__ */ import_react21.default.createElement(
+  console.log("info.percent_available");
+  console.log(info.percent_available);
+  return /* @__PURE__ */ import_react22.default.createElement(import_react22.default.Fragment, null, /* @__PURE__ */ import_react22.default.createElement("h3", { style: { color: "#333", fontWeight: 600 } }, "Dashboard"), /* @__PURE__ */ import_react22.default.createElement("div", { className: "row gy-4" }, /* @__PURE__ */ import_react22.default.createElement("div", { className: "row gy-4" }, /* @__PURE__ */ import_react22.default.createElement("div", { className: "col-xxl-8", style: { width: "66.666%" } }, /* @__PURE__ */ import_react22.default.createElement("div", { className: "row gy-4" }, /* @__PURE__ */ import_react22.default.createElement(
     DataContainer_default,
     {
       bgColor: "bg-gradient-end-1",
@@ -709,7 +733,7 @@ var Dashboard = ({ info, charts }) => {
       data: info.total_asesores,
       chart: charts.asesorsChart
     }
-  ), /* @__PURE__ */ import_react21.default.createElement(
+  ), /* @__PURE__ */ import_react22.default.createElement(
     DataContainer_default,
     {
       bgColor: "bg-gradient-end-2",
@@ -720,7 +744,7 @@ var Dashboard = ({ info, charts }) => {
       chart: charts.clientsChart,
       chartColor: "#45b369"
     }
-  ), /* @__PURE__ */ import_react21.default.createElement(
+  ), /* @__PURE__ */ import_react22.default.createElement(
     DataContainer_default,
     {
       bgColor: "bg-gradient-end-3",
@@ -731,7 +755,7 @@ var Dashboard = ({ info, charts }) => {
       chart: charts.soldUnitsChart,
       chartColor: "#f4941e"
     }
-  ), /* @__PURE__ */ import_react21.default.createElement(
+  ), /* @__PURE__ */ import_react22.default.createElement(
     DataContainer_default,
     {
       bgColor: "bg-gradient-end-4",
@@ -742,7 +766,7 @@ var Dashboard = ({ info, charts }) => {
       chart: charts.availableUnitsChart,
       chartColor: "#8252e9"
     }
-  ), /* @__PURE__ */ import_react21.default.createElement(
+  ), /* @__PURE__ */ import_react22.default.createElement(
     DataContainer_default,
     {
       bgColor: "bg-gradient-end-5",
@@ -751,7 +775,7 @@ var Dashboard = ({ info, charts }) => {
       title: "Unidades Disponibles Valor",
       data: info.available_units_value
     }
-  ), /* @__PURE__ */ import_react21.default.createElement(
+  ), /* @__PURE__ */ import_react22.default.createElement(
     DataContainer_default,
     {
       bgColor: "bg-gradient-end-6",
@@ -760,7 +784,7 @@ var Dashboard = ({ info, charts }) => {
       title: "Unidades Disponibles Promedio",
       data: info.available_units_avg
     }
-  )), /* @__PURE__ */ import_react21.default.createElement("div", { class: "col-xxl-4", style: { width: "33.333%" } }, /* @__PURE__ */ import_react21.default.createElement("div", { class: "card h-100 radius-8 border" }, /* @__PURE__ */ import_react21.default.createElement("div", { class: "card-body p-24" }, /* @__PURE__ */ import_react21.default.createElement("div", { class: "d-flex align-items-center flex-wrap gap-2 justify-content-between" }, /* @__PURE__ */ import_react21.default.createElement("div", null, /* @__PURE__ */ import_react21.default.createElement("h6", { class: "mb-2 fw-bold text-lg" }, "Cotizaciones"), /* @__PURE__ */ import_react21.default.createElement("span", { class: "text-sm fw-medium text-secondary-light" }, "Mensuales")), /* @__PURE__ */ import_react21.default.createElement("div", { class: "text-end" }, /* @__PURE__ */ import_react21.default.createElement("h6", { class: "mb-2 fw-bold text-lg" }, info.total_quotes), /* @__PURE__ */ import_react21.default.createElement("span", { class: "bg-success-focus ps-12 pe-12 pt-2 pb-2 rounded-2 fw-medium text-success-main text-sm" }, "+", info.new_quotes))), /* @__PURE__ */ import_react21.default.createElement(import_shared_utils7.Chart, { chart: charts.quotesChart, type: import_shared_utils7.ChartType.LINE, gradient: true, guides: import_shared_utils7.ChartGuides.XAXIS }))))));
+  ))), /* @__PURE__ */ import_react22.default.createElement("div", { className: "col-xxl-4", style: { width: "33.333%" } }, /* @__PURE__ */ import_react22.default.createElement("div", { className: "card h-100 radius-8 border" }, /* @__PURE__ */ import_react22.default.createElement("div", { className: "card-body p-24" }, /* @__PURE__ */ import_react22.default.createElement("div", { className: "d-flex align-items-center flex-wrap gap-2 justify-content-between" }, /* @__PURE__ */ import_react22.default.createElement("div", null, /* @__PURE__ */ import_react22.default.createElement("h6", { className: "mb-2 fw-bold text-lg" }, "Cotizaciones"), /* @__PURE__ */ import_react22.default.createElement("span", { className: "text-sm fw-medium text-secondary-light" }, "Mensuales")), /* @__PURE__ */ import_react22.default.createElement("div", { className: "text-end" }, /* @__PURE__ */ import_react22.default.createElement("h6", { className: "mb-2 fw-bold text-lg" }, info.total_quotes), /* @__PURE__ */ import_react22.default.createElement("span", { className: "bg-success-focus ps-12 pe-12 pt-2 pb-2 rounded-2 fw-medium text-success-main text-sm" }, "+", info.new_quotes))), /* @__PURE__ */ import_react22.default.createElement(import_shared_utils7.Chart, { chart: charts.quotesChart, type: import_shared_utils7.ChartType.LINE, gradient: true, guides: import_shared_utils7.ChartGuides.XAXIS, height: 162 }))))), /* @__PURE__ */ import_react22.default.createElement("div", { className: "col-xxl-8" }, /* @__PURE__ */ import_react22.default.createElement("div", { className: "card h-100 radius-8 border-0" }, /* @__PURE__ */ import_react22.default.createElement("div", { className: "card-body p-24" }, /* @__PURE__ */ import_react22.default.createElement("div", { className: "d-flex align-items-center flex-wrap gap-2 justify-content-between" }, /* @__PURE__ */ import_react22.default.createElement("div", null, /* @__PURE__ */ import_react22.default.createElement("h6", { className: "mb-2 fw-bold text-lg" }, "Ventas"))), /* @__PURE__ */ import_react22.default.createElement(import_shared_utils7.Chart, { chart: charts.salesChart, type: import_shared_utils7.ChartType.BAR, guides: import_shared_utils7.ChartGuides.FULL })))), /* @__PURE__ */ import_react22.default.createElement("div", { class: "col-xxl-4" }, /* @__PURE__ */ import_react22.default.createElement("div", { class: "row gy-4" }, /* @__PURE__ */ import_react22.default.createElement("div", { className: "col-xxl-12 col-sm-6" }, /* @__PURE__ */ import_react22.default.createElement("div", { className: "card h-100 radius-8 border-0" }, /* @__PURE__ */ import_react22.default.createElement("div", { className: "card-body p-24" }, /* @__PURE__ */ import_react22.default.createElement("div", { className: "d-flex align-items-center flex-wrap gap-2 justify-content-between" }, /* @__PURE__ */ import_react22.default.createElement("h6", { className: "mb-2 fw-bold text-lg" }, "Unidades")), /* @__PURE__ */ import_react22.default.createElement("div", { className: "mt-3" }, /* @__PURE__ */ import_react22.default.createElement(PercentContainer_default, { title: "Disponibles", bgColor: "bg-orange", percent: info.percent_available }), /* @__PURE__ */ import_react22.default.createElement(PercentContainer_default, { title: "Apartadas", bgColor: "bg-success-main", percent: info.percent_apartado }), /* @__PURE__ */ import_react22.default.createElement(PercentContainer_default, { title: "Vendidas", bgColor: "bg-info-main", percent: info.percent_sold })))))))));
 };
 var Dashboard_default = Dashboard;
 
