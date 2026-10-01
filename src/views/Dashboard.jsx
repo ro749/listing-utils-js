@@ -3,27 +3,26 @@ import MingcuteUserFollowFill from '~icons/mingcute/user-follow-fill';
 import IconamoonDiscountFill from '~icons/iconamoon/discount-fill';
 import MdiMessageText from '~icons/mdi/message-text';
 import StreamlineBagDollarSolid from '~icons/streamline/bag-dollar-solid';
-import { Chart, ChartType, ChartGuides } from "shared-utils";
+import { Chart, ChartType, ChartGuides, Colors } from "shared-utils";
 import DataContainer from "./DataContainer";
 import PercentContainer from "./PercentContainer";
 const Dashboard = ({ info, charts }) => {
-  console.log("info.percent_available");
-  console.log(info.percent_available);
+  console.log(charts.modelsChart.data);
     return <>
       <h3 style={{ color: "#333", fontWeight: 600 }}>Dashboard</h3>
       <div className="row gy-4">
-      <div className="row gy-4">
-        <div className="col-xxl-8" style={{ width: "66.666%" }}>
-          <div className="row gy-4">
-            <DataContainer
+        <div className="row gy-4">
+          <div className="col-xxl-8" style={{ width: "66.666%" }}>
+            <div className="row gy-4">
+              <DataContainer
               bgColor={"bg-gradient-end-1"}
               iconBgColor={"bg-primary-600"}
               Icon={MingcuteUserFollowFill}
               title={'Asesores'}
               data={info.total_asesores}
               chart={charts.asesorsChart}
-            />
-            <DataContainer
+              />
+              <DataContainer
               bgColor={"bg-gradient-end-2"}
               iconBgColor={"bg-success-main"}
               Icon={MingcuteUserFollowFill}
@@ -31,8 +30,8 @@ const Dashboard = ({ info, charts }) => {
               data={info.total_clients}
               chart={charts.clientsChart}
               chartColor={'#45b369'}
-            />
-            <DataContainer
+              />
+              <DataContainer
               bgColor={"bg-gradient-end-3"}
               iconBgColor={"bg-yellow"}
               Icon={IconamoonDiscountFill}
@@ -40,8 +39,8 @@ const Dashboard = ({ info, charts }) => {
               data={info.sold_units}
               chart={charts.soldUnitsChart}
               chartColor={'#f4941e'}
-            />
-            <DataContainer
+              />
+              <DataContainer
               bgColor={"bg-gradient-end-4"}
               iconBgColor={"bg-purple"}
               Icon={MdiMessageText}
@@ -49,24 +48,24 @@ const Dashboard = ({ info, charts }) => {
               data={info.available_units}
               chart={charts.availableUnitsChart}
               chartColor={'#8252e9'}
-            />
-            <DataContainer
+              />
+              <DataContainer
               bgColor={"bg-gradient-end-5"}
               iconBgColor={"bg-pink"}
               Icon={StreamlineBagDollarSolid}
               title={'Unidades Disponibles Valor'}
               data={info.available_units_value}
-            />
-            <DataContainer
+              />
+              <DataContainer
               bgColor={"bg-gradient-end-6"}
               iconBgColor={"bg-cyan-500"}
               Icon={StreamlineBagDollarSolid}
               title={'Unidades Disponibles Promedio'}
               data={info.available_units_avg}
-            />
+              />
+            </div>
           </div>
-        </div>
-        <div className="col-xxl-4" style={{ width: "33.333%" }}>
+          <div className="col-xxl-4" style={{ width: "33.333%" }}>
           <div className="card h-100 radius-8 border">
               <div className="card-body p-24">
                   <div className="d-flex align-items-center flex-wrap gap-2 justify-content-between">
@@ -86,22 +85,22 @@ const Dashboard = ({ info, charts }) => {
               <Chart chart={charts.quotesChart} type={ChartType.LINE} gradient={true} guides={ChartGuides.XAXIS} height={162} />
               </div>
           </div>
-        </div>
-      </div>
-      <div className="col-xxl-8">
-          <div className="card h-100 radius-8 border-0">
-              <div className="card-body p-24">
-                  <div className="d-flex align-items-center flex-wrap gap-2 justify-content-between">
-                      <div>
-                          <h6 className="mb-2 fw-bold text-lg">Ventas</h6>
-                      </div>
-                  </div>
-                  <Chart chart={charts.salesChart} type={ChartType.BAR} guides = {ChartGuides.FULL}/>
-              </div>
           </div>
-      </div>
-      <div class="col-xxl-4">
-          <div class="row gy-4">
+        </div>
+        <div className="col-xxl-8">
+          <div className="card h-100 radius-8 border-0">
+            <div className="card-body p-24">
+              <div className="d-flex align-items-center flex-wrap gap-2 justify-content-between">
+                <div>
+                  <h6 className="mb-2 fw-bold text-lg">Ventas</h6>
+                </div>
+              </div>
+              <Chart chart={charts.salesChart} type={ChartType.BAR} guides = {ChartGuides.FULL}/>
+            </div>
+          </div>
+        </div>
+        <div className="col-xxl-4">
+          <div className="row gy-4">
             <div className="col-xxl-12 col-sm-6">
               <div className="card h-100 radius-8 border-0">
                 <div className="card-body p-24">
@@ -115,8 +114,52 @@ const Dashboard = ({ info, charts }) => {
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="col-xxl-12 col-sm-6">
+              <div className="card h-100 radius-8 border-0 overflow-hidden">
+                <div className="card-body p-24">
+                  <div className="d-flex align-items-center flex-wrap gap-2 justify-content-between">
+                    <h6 className="mb-2 fw-bold text-lg">Modelos Disponibles</h6>
+                  </div>
+
+                  <div className="d-flex align-items-center mt-3">
+                    <ul className="flex-shrink-0">
+                      {charts.modelsChart.data.map((model, index) => (
+                        <li key={index} className="d-flex align-items-center gap-2 mb-28">
+                            <span className="w-12-px h-12-px rounded-circle" style={{backgroundColor: Colors[index%6]}}></span>
+                            <span className="text-secondary-light text-sm fw-medium">{model.name}: {model.modelo_percent}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Chart chart={charts.modelsChart} type={ChartType.DONUT} width={300} height={242.7}/>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <div className="col-xxl-4" style={{ width: "33.3333%" }} >
+          <div className="card">
+            <div className="card-body">
+              <div className="d-flex align-items-center flex-wrap gap-2 justify-content-between">
+                <h6 className="mb-2 fw-bold text-lg mb-0">Cotizaciones por Modelo</h6>
+              </div>
+              <div className="mt-32">
+              {charts.modelsChart.data.map((model, index) => (
+                <div key={index} className="d-flex align-items-center justify-content-between gap-3 mb-32">
+                  <div className="d-flex align-items-center">
+                    <img src={model['image']} alt="" className="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden"/>
+                    <div className="flex-grow-1">
+                        <h6 className="text-md mb-0">{model['name']}</h6>
+                        <span className="text-sm text-secondary-light fw-medium">Precio promedio: ${Intl.NumberFormat('es-MX', {style: 'currency',currency: 'MXN'}).format(model['price'])}</span>
+                    </div>
+                  </div>
+                  <span className="text-primary-light text-md fw-medium">{model['quote_count']}</span>
+                </div>
+              ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>;
