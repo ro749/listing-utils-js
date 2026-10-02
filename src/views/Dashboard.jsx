@@ -150,14 +150,33 @@ const Dashboard = ({ info, charts }) => {
                   <div className="d-flex align-items-center">
                     <img src={model['image']} alt="" className="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden"/>
                     <div className="flex-grow-1">
-                        <h6 className="text-md mb-0">{model['name']}</h6>
-                        <span className="text-sm text-secondary-light fw-medium">Precio promedio: ${Intl.NumberFormat('es-MX', {style: 'currency',currency: 'MXN'}).format(model['price'])}</span>
+                      <h6 className="text-md mb-0">{model['name']}</h6>
+                      <span className="text-sm text-secondary-light fw-medium">Precio promedio: ${Intl.NumberFormat('es-MX', {style: 'currency',currency: 'MXN'}).format(model['price'])}</span>
                     </div>
                   </div>
                   <span className="text-primary-light text-md fw-medium">{model['quote_count']}</span>
                 </div>
               ))}
               </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-xxl-6" style={{ width: "66.6666%" }}>
+          <div className="card h-100">
+            <div className="card-header">
+              <div className="d-flex align-items-center flex-wrap gap-2 justify-content-between">
+                <h6 className="mb-2 fw-bold text-lg mb-0">Porcentaje de Cotizaciones por Modelo</h6>
+              </div>
+            </div>
+          <div className="card-body p-24 d-flex align-items-center gap-16">
+            <Chart chart={charts.modelsQuotesChart} type={ChartType.RADIAL} height={665.3666666666667} />
+              <ul className="d-flex flex-column gap-12">
+                {charts.modelsQuotesChart.data.map((model, index) => (
+                  <li>
+                      <span className="text-lg">{model.name}: <span className="fw-semibold" style={{color: Colors[index%6]}}>{model.quote_percent}%</span> </span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
