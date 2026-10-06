@@ -16,8 +16,10 @@ const Dashboard = ({
   salesChart,
   modelsChart,
   modelsQuotesChart,
-  asesoresTable
+  asesoresTable,
+  asesorsQuotesChart
 }) => {
+  console.log(asesorsQuotesChart);
     return <>
       <h3 style={{ color: "#333", fontWeight: 600 }}>Dashboard</h3>
       <div className="row gy-4">
@@ -182,8 +184,8 @@ const Dashboard = ({
             <Chart chart={modelsQuotesChart} type={ChartType.RADIAL} height={665.3666666666667} />
               <ul className="d-flex flex-column gap-12">
                 {modelsQuotesChart.data.map((model, index) => (
-                  <li>
-                      <span key={index} className="text-lg">{model.name}: <span className="fw-semibold" style={{color: Colors[index%6]}}>{model.quote_percent}%</span> </span>
+                  <li key={index} >
+                      <span className="text-lg">{model.name}: <span className="fw-semibold" style={{color: Colors[index%6]}}>{model.quote_percent}%</span> </span>
                   </li>
                 ))}
               </ul>
@@ -199,6 +201,16 @@ const Dashboard = ({
               <div className="card-body p-0">
                 <div className="table-responsive scroll-sm">
                   <Table {...asesoresTable} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-xxl-4 col-xl-6">
+            <div className="card h-100">
+              <div className="card-body p-24">
+                <div className="d-flex align-items-center flex-wrap gap-2 justify-content-between">
+                  <h6 className="mb-2 fw-bold text-lg mb-0">Cotizaciones por Tipo de Asesor</h6>
+                  <Chart chart={asesorsQuotesChart} type={ChartType.BAR} guides={ChartGuides.FULL} />
                 </div>
               </div>
             </div>
